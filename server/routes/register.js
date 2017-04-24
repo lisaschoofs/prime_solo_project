@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
-// var Users = require('../models/user');
 var path = require('path');
 
 // module with bcrypt functions
@@ -28,7 +27,7 @@ router.post('/', function(req, res, next) {
       console.log('Error connecting: ', err);
       next(err);
     }
-    client.query("INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id",
+    client.query('INSERT INTO users (username, password) VALUES ($1, $2) RETURNING id',
       [saveUser.username, saveUser.password],
         function (err, result) {
           client.end();
