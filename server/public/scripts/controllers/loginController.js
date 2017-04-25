@@ -1,4 +1,4 @@
-myApp.controller('LoginController', ['$scope', '$http', '$location', function($scope, $http, $location) {
+myApp.controller('LoginController', ['$scope', '$http', '$location', 'UserService', function($scope, $http, $location, UserService) {
     $scope.user = {
       username: '',
       password: ''
@@ -6,7 +6,7 @@ myApp.controller('LoginController', ['$scope', '$http', '$location', function($s
     $scope.message = '';
 
     $scope.login = function() {
-      if($scope.user.username == '' || $scope.user.password == '') {
+      if($scope.user.username === '' || $scope.user.password === '') {
         $scope.message = "Enter your username and password!";
       } else {
         console.log('sending to server...', $scope.user);
@@ -14,7 +14,6 @@ myApp.controller('LoginController', ['$scope', '$http', '$location', function($s
           if(response.data.username) {
             console.log('success: ', response.data);
             // location works with SPA (ng-route)
-            console.log('redirecting to user page');
             $location.path('/user');
           } else {
             console.log('failure: ', response);
@@ -22,10 +21,10 @@ myApp.controller('LoginController', ['$scope', '$http', '$location', function($s
           }
         });
       }
-    }
+    };
 
     $scope.registerUser = function() {
-      if($scope.user.username == '' || $scope.user.password == '') {
+      if($scope.user.username === '' || $scope.user.password === '') {
         $scope.message = "Choose a username and password!";
       } else {
         console.log('sending to server...', $scope.user);
