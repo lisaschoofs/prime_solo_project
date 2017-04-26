@@ -1,3 +1,4 @@
+<header ng-include="'/views/partials/header.html'"></header>
 <div class="container">
   <div ng-include="'views/partials/nav.html'"></div>
   <h1 id="welcome" class="lead">Welcome, {{userObject.userName}}!</h1>
@@ -8,7 +9,7 @@
     <div class="col-md-6">
       <button class="btn btn-default btn-lg" ng-click="newStudent()">Add A New Student</button>
       <br>
-      <button class="btn btn-default btn-lg">Add A New Lesson</button>
+      <button class="btn btn-default btn-lg" ng-click="addLesson()">Add A New Lesson</button>
     </div>
   </div>
 </div>

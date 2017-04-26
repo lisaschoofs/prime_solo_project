@@ -4,4 +4,7 @@ myApp.controller('UserController', ['$scope', '$http', '$location', 'UserService
   $scope.newStudent = function() {
     $location.path('/newstudent');
   };
+  $scope.addLesson = function() {
+    $location.path('/addlesson');
+  };
 }]);
