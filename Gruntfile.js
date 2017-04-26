@@ -39,10 +39,10 @@ module.exports = function(grunt){
       },
       sweetalert: {
         expand: true,
-        cwd: 'node_modules/sweetalert/dist',
-        src: ['sweetalert.css',
-              'sweetalert.min.js'],
-        dest: 'server/public/vendors/sweetalert/'
+        cwd: 'node_modules/sweetalert2/dist',
+        src: ['sweetalert2.css',
+              'sweetalert2.min.js'],
+        dest: 'server/public/vendors/sweetalert2/'
       },
       angularRoute: {
         expand: true,
