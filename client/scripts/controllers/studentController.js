@@ -2,7 +2,21 @@ myApp.controller('StudentController', ['$scope', '$http', '$location', 'UserServ
   console.log('in StudentController');
   $scope.userObject = UserService.userObject;
   $scope.logout = UserService.logout;
-  $scope.addStudent = function() {
-    console.log('add student function running');
+  $scope.student = {
+    name: '',
+    username: '',
+    password: '',
+    instrument: '',
+    day: '',
   };
+
+  $scope.addStudent = function(student) {
+    console.log('add student function running');
+    console.log($scope.student);
+    $http.post('/message', student).then(function(response){
+      // $scope.getMessages();
+      console.log('back from the server with success!', response);
+      });
+    };
+
 }]);
