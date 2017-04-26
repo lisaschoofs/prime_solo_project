@@ -1,5 +1,14 @@
 <div class="container">
-    <div ng-include="'views/partials/nav.html'"></div>
-    <h1 id="welcome" class="lead">Welcome, {{userObject.userName}}!</h1>
-    <button class="btn btn-default" ng-click="logout()">Log Out</button>
+  <div ng-include="'views/partials/nav.html'"></div>
+  <h1 id="welcome" class="lead">Welcome, {{userObject.userName}}!</h1>
+  <button class="btn btn-default" ng-click="logout()">Log Out</button>
+  <div class="row">
+    <div class="col-md-6">
+    </div>
+    <div class="col-md-6">
+      <button class="btn btn-default btn-lg" ng-click="newStudent()">Add A New Student</button>
+      <br>
+      <button class="btn btn-default btn-lg">Add A New Lesson</button>
+    </div>
+  </div>
 </div>

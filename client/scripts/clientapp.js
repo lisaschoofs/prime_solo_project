@@ -36,6 +36,15 @@ myApp.config(['$routeProvider', '$locationProvider',
         }]
       }
     })
+    .when('/newstudent', {
+      templateUrl: '/views/templates/newstudent.html',
+      controller: 'StudentController',
+      resolve: {
+        getuser : ['UserService', function(UserService){
+          return UserService.getuser();
+        }]
+      }
+    })
     .otherwise({
       redirectTo: 'home'
     });

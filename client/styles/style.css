@@ -1,28 +1,29 @@
 html {
-  background-color: #C1666B;
+  background-color: #48A9A6;
   font-family: 'Roboto', sans-serif;
 }
 
 main {
-  background-color: #E4DFDA
+  background-color: #F9F8F8
 }
 
 .login {
   border: 10px black;
 }
+
 .instructions .container h1 {
     font-size: 24px;
     font-weight: 700;
 }
 
 .instructions {
-    background-color: #48A9A6;
+    background-color: #4357AD;
     color: #E4DFDA;
 }
 
 #entryForm {
     margin-top: 14px;
-    background-color: #E4DFDA;
+    background-color: #4357AD;
 }
 
 #container {

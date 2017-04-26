@@ -14,7 +14,7 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
               console.log('User Data: ', userObject.userName);
           } else {
               // user has no session, bounce them back to the login page
-              $location.path("/home");
+              $location.path('/home');
           }
       });
     },
@@ -22,7 +22,7 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
     logout : function() {
         $http.get('/user/logout').then(function(response) {
           console.log('logged out');
-          $location.path("/home");
+          $location.path('/home');
         });
     }
   };
