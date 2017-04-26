@@ -16,16 +16,16 @@ var pool = new pg.Pool(config);
 
 // Handles new student post from StudentController's addStudent function
 router.post('/', function(req, res) {
-  console.log(req.body);
+  console.log('logging req.body: ', req.body);
   pool.connect(function(error, db, done){
     if(error) {
       console.log("error connecting to the database.");
       res.send(500);
 
     } else {
-
+        console.log('made it to else in router.post');
 // UPDATE DB QUERY BELOW!
-      db.query('INSERT INTO "tasks" ("description", "status") VALUES ($1,$2);', [description, status], function(queryError, result){
+      db.query('INSERT INTO "students" ("name", "username", "password", "instrument", "day") VALUES ($1, $2, $3, $4, $5);', [req.body.name, req.body.username, req.body.password, req.body.instrument, req.body.day], function(queryError, result){
         done();
         if (queryError) {
           console.log('Error making query.');
