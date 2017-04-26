@@ -25,7 +25,7 @@ router.post('/', function(req, res) {
     } else {
         console.log('made it to else in router.post');
 // UPDATE DB QUERY BELOW!
-      db.query('INSERT INTO "students" ("name", "username", "password", "instrument", "day") VALUES ($1, $2, $3, $4, $5);', [req.body.name, req.body.username, req.body.password, req.body.instrument, req.body.day], function(queryError, result){
+      db.query('INSERT INTO "students" ("name", "username", "password", "instrument", "day", "teacher") VALUES ($2, $3, $4, $5, $6, $1);', [req.body.teacher, req.body.name, req.body.username, req.body.password, req.body.instrument, req.body.day], function(queryError, result){
         done();
         if (queryError) {
           console.log('Error making query.');
