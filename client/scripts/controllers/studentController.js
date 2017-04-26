@@ -13,7 +13,7 @@ myApp.controller('StudentController', ['$scope', '$http', '$location', 'UserServ
   $scope.addStudent = function(student) {
     console.log('add student function running');
     console.log($scope.student);
-    $http.post('/message', student).then(function(response){
+    $http.post('/student', student).then(function(response){
       // $scope.getMessages();
       console.log('back from the server with success!', response);
       });
