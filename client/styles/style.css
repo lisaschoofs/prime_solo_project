@@ -7,8 +7,18 @@ main {
   background-color: #F9F8F8
 }
 
+.top {
+  padding: 100px;
+  text-align: center;
+}
+
 .login {
-  border: 10px black;
+  padding: 25px;
+  text-align: center;
+  border-style: solid;
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: #4357AD;
 }
 
 .instructions .container h1 {
