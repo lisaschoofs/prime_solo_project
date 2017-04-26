@@ -1,8 +1,18 @@
 var express = require('express');
 var router = express.Router();
-//took out passport
 var path = require('path');
 var pg = require('pg');
+
+var config = {
+  user: 'lisaschoofs', //env var: PGUSER
+  database: 'musicnotes', //env var: PGDATABASE
+  password: '', //env var: PGPASSWORD
+  port: 5432, //env var: PGPORT
+  max: 10, // max number of clients in the pool
+  idleTimeoutMillis: 1500, // 1.5s // how long a client is allowed to remain idle before being closed
+};
+
+var pool = new pg.Pool(config);
 
 // Handles new student post from StudentController's addStudent function
 router.post('/', function(req, res) {

@@ -12,9 +12,9 @@ myApp.controller('StudentController', ['$scope', '$http', '$location', 'UserServ
 
   $scope.addStudent = function(student) {
     console.log('add student function running');
-    console.log($scope.student);
     $http.post('/student', student).then(function(response){
       // $scope.getMessages();
+      console.log('logging student within post: ', student);
       console.log('back from the server with success!', response);
       });
     };

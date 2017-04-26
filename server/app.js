@@ -35,6 +35,7 @@ app.use(passport.session());
 // Routes
 app.use('/register', register);
 app.use('/user', user);
+app.use('/student', student);
 app.use('/*', index);
 
 // App Set //
