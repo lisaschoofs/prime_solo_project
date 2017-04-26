@@ -1,27 +1,29 @@
 <header ng-include="'/views/partials/header.html'"></header>
 <div class="container">
   <h1 class="lead"> Add a New Student </h1>
-  </p>
   <div class="row">
     <div class="col-lg-12">
       <form ng-submit="addStudent()">
         <div class="form-group">
-          <label for="email">Student Email</label>
+          <label for="name">Name: </label>
+          <input type="text" ng-model="student.name" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email: </label>
           <input type="text" ng-model="student.username" />
         </div>
         <div class="form-group">
-          <label for="password">Password:</label>
+          <label for="password">Password: </label>
           <input type="password" ng-model="student.password" />
         </div>
         <div class="form-group">
-          <label for="instrument">Instrument:</label>
+          <label for="instrument">Instrument: </label>
           <input type="text" ng-model="student.instrument" />
         </div>
         <div class="form-group">
-          <label for="Lesson Day">Regular Lesson Day:</label>
+          <label for="Lesson Day">Regular Lesson Day: </label>
           <input type="text" ng-model="student.day" />
         </div>
-
         <input class="btn btn-default" type="submit" name="submit" value="Add Student" />
         <a href="#user">Cancel</a>
       </form>
