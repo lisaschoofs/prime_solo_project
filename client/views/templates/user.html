@@ -6,6 +6,9 @@
     <div class="col-md-6">
       <h2>My Students</h2>
       <p>sweet, sweet list of students to go here</p>
+      <div ng-repeat="student in studentList.students">
+          <p>{{ student.name + " " + student.instrument }}</p>
+      </div>
     </div>
     <div class="col-md-6">
       <button class="btn btn-default btn-lg" ng-click="newStudent()">Add A New Student</button>

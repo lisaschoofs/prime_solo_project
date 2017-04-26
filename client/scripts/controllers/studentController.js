@@ -15,15 +15,14 @@ myApp.controller('StudentController', ['$scope', '$http', '$location', 'UserServ
 //
   sweetAlert = function() {
     swal({
-    title: 'Good job!',
-    text: 'Sweet, your student is added!',
+    title: 'Success!',
+    text: 'Sweet, your student has been added!',
     type: 'success'
     // $location.path('/user')
   });
 };
 
   $scope.addStudent = function(student) {
-
       console.log('add student function running');
       student.teacher = $scope.userObject.userName;
       console.log('logging updated student before sending to DB', student);

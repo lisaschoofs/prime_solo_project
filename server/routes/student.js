@@ -14,6 +14,33 @@ var config = {
 
 var pool = new pg.Pool(config);
 
+router.get('/', function(req, res) {
+
+  pool.connect(function(error, db, done){
+    if(error) {
+      console.log("error connecting to the database.");
+      res.send(500);
+
+    } else {
+
+      db.query('SELECT * FROM "students";', function(queryError, result){
+        done();
+        if (queryError) {
+          console.log('Error making query.');
+          res.send(500);
+        } else {
+
+          console.log(result);
+          res.send(result.rows);
+          //rows is the array of objects. result would give us more info than we need.
+        }//ends else
+      }); //ends db query
+    } //ends else
+  }); //ends pool.connect
+}); //ends router.get
+
+
+
 // Handles new student post from StudentController's addStudent function
 router.post('/', function(req, res) {
   console.log('logging req.body: ', req.body);
@@ -39,5 +66,7 @@ router.post('/', function(req, res) {
     } //ends else
   }); //ends pool.connect
 }); //ends router
+
+
 
 module.exports = router;
