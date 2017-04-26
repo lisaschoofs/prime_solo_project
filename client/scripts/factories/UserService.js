@@ -3,23 +3,9 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
 
   var userObject = {};
 
-  var studentList = {
-    students: []
-  };
-
-  function getStudents() {
-    $http.get('/student').then(function(response){
-      studentList.students = response.data;
-    console.log('response.data in getStudents: ', response.data);
-    console.log('studentList in getStudents: ', studentList);
-  });
-}
-
   return {
     userObject : userObject,
-    studentList: studentList,
-    getStudents: getStudents,
-
+    
     getuser : function(){
       $http.get('/user').then(function(response) {
           if(response.data.username) {
