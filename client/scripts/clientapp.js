@@ -9,14 +9,17 @@ myApp.config(['$routeProvider', '$locationProvider',
     .when('/home', {
       templateUrl: '/views/templates/home.html',
       controller: 'LoginController',
+      // controllerAs: 'login'
     })
     .when('/register', {
       templateUrl: '/views/templates/register.html',
-      controller: 'LoginController'
+      controller: 'LoginController',
+      // controllerAs: 'login'
     })
     .when('/user', {
       templateUrl: '/views/templates/user.html',
       controller: 'UserController',
+      // controllerAs: 'user',
       resolve: {
         getuser : ['UserService', function(UserService){
           return UserService.getuser();
@@ -26,6 +29,7 @@ myApp.config(['$routeProvider', '$locationProvider',
     .when('/info', {
       templateUrl: '/views/templates/info.html',
       controller: 'InfoController',
+      // controllerAs: 'info',
       resolve: {
         getuser : ['UserService', function(UserService){
           return UserService.getuser();

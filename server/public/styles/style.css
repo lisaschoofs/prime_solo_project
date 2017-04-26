@@ -1,15 +1,24 @@
+html {
+  background-color: #C1666B;
+}
+
+main {
+  background-color: #E4DFDA
+}
+
 .instructions .container h1 {
     font-size: 24px;
     font-weight: 700;
 }
 
 .instructions {
-    background-color: #333333;
-    color: #DDDDDD;
+    background-color: #48A9A6;
+    color: #E4DFDA;
 }
 
 #entryForm {
     margin-top: 14px;
+    background-color: #E4DFDA;
 }
 
 #container {
