@@ -13,6 +13,11 @@ myApp.controller('StudentController', ['$scope', '$http', '$location', 'UserServ
     day: '',
   };
 
+  sweetAlert = function() {
+  swal('Good job!', 'Sweet, your student is added!', 'success');
+};
+
+
   $scope.addStudent = function(student) {
 
       console.log('add student function running');
@@ -22,6 +27,7 @@ myApp.controller('StudentController', ['$scope', '$http', '$location', 'UserServ
       // $scope.getMessages();
       console.log('logging student within post: ', student);
       console.log('back from the server with success!', response);
+      sweetAlert();
       });
     };
 
