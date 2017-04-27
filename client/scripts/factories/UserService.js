@@ -5,13 +5,15 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
 
   return {
     userObject : userObject,
-    
+
     getuser : function(){
       $http.get('/user').then(function(response) {
+        console.log('logging response.data in get user: ', response.data);
           if(response.data.username) {
               // user has a curret session on the server
+              userObject.id = response.data.id;
               userObject.userName = response.data.username;
-              console.log('User Data: ', userObject.userName);
+              console.log('User Data: ', userObject.userName, userObject.id);
           } else {
               // user has no session, bounce them back to the login page
               $location.path('/home');
