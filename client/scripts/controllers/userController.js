@@ -9,7 +9,9 @@ myApp.controller('UserController', ['$scope', '$http', '$location', 'UserService
   $scope.addLesson = function() {
     $location.path('/addlesson');
   };
-
+  $scope.studentView = function() {
+    $location.path('/mystudent');
+  };
   $scope.getStudents();
   console.log('logging scope.studentList', $scope.studentList);
 }]);
