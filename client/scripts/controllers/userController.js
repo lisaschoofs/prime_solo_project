@@ -13,7 +13,6 @@ myApp.controller('UserController', ['$scope', '$http', '$location', 'UserService
 
   $scope.addLesson = function() {
     $location.path('/addlesson');
-    getStudents();
   };
 
   $scope.studentView = function(student) {

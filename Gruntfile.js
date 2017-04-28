@@ -29,6 +29,12 @@ module.exports = function(grunt){
               'js/bootstrap.js'],
         dest: 'server/public/vendors/bootstrap/'
       },
+      jquery: {
+        expand: true,
+        cwd: 'node_modules/jquery/dist/',
+        src: ['jquery.min.js'],
+        dest: 'server/public/vendors/jquery/'
+      },
       angular: {
         expand: true,
         cwd: 'node_modules/angular/',
