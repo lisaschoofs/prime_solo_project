@@ -14,3 +14,10 @@ CREATE TABLE "students" (
   "day" varchar(80) not null,
   "teacher" varchar(120) not null
 );
+
+CREATE TABLE "lessons" (
+  "id" serial primary key,
+  "student" varchar(80) not null,
+  "date" varchar(80) not null,
+  "description" varchar(1000) not null
+);

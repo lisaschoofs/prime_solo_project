@@ -4,46 +4,29 @@
   <h1> Add a New Lesson! </h1>
   <div class="row">
     <div class="col-lg-12">
-      <form ng-submit="addLesson()">
+      <form ng-submit="addLesson(lesson)">
+          <!-- <div ng-repeat="student in studentList.students" ng-show="student.teacher == userObject.id">
+            <p> {{student.instrument}} </p>
+          </div> -->
         <div class="form-group">
           <label for="studentDropdown">Student</label>
-
-          <!-- this needs to access the student get w/ teacher filter and dynamically load up the students -->
-
-          <!-- <select class="form-control" id="exampleSelect1">
-            <option ng-repeat="student in studentList.students" ng-show="student.teacher == userObject.id">{{student.name}}</option>
-          </select> -->
-
-          <!-- <li ng-repeat="student in studentList.students" ng-show="student.teacher == userObject.id">
-            <a ng-click="$scope.studentObject = student">
-              {{student.name}}
-            </a>
-          </li> -->
-
-          <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-              Select Student
-              <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-              <li ng-repeat="student in studentList.students" ng-show="student.teacher == userObject.id">
-                <a>{{student.name}}</a>
-                <a>test</a>
-              </li>
-            </ul>
-          </div>
-
-
+          <select class="form-control" val="Select Student">
+            <option ng-repeat="student in studentList.students" ng-show="student.teacher == userObject.id" value="{{lesson.student}}">{{student.name}}</option>
+            <!-- <option ng-repeat="student in studentList.students" ng-show="student.teacher == userObject.id" ng-model="lesson.student">{{student.name}}</option> -->
+          </select>
         </div>
+
         <div class="form-group">
           <label for="date">Lesson Date</label>
-          <input class="form-control" type="date">
+          <input class="form-control" ng-model="lesson.date" type="date">
         </div>
+
       <div class="form-group">
         <label for="description">Lesson Details: </label>
-        <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+        <textarea class="form-control" id="exampleTextarea" rows="3" ng-model="lesson.description"></textarea>
       </div>
-      <input class="btn btn-default" type="submit" name="submit" value="Assign Lesson"/>
+
+      <input class="btn btn-default" type="submit" name="lesson.submit" value="Assign Lesson"/>
       <a href="#user">Cancel</a>
     </form>
   </div>

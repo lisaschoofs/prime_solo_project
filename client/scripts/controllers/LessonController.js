@@ -1,5 +1,5 @@
 myApp.controller('LessonController', ['$scope', '$http', '$location', 'UserService', 'StudentService', function($scope, $http, $location, UserService, StudentService) {
-  console.log('in LessonController');
+  // console.log('in LessonController');
   $scope.getStudents = StudentService.getStudents;
   $scope.getStudents();
   $scope.userObject = UserService.userObject;
@@ -7,12 +7,27 @@ myApp.controller('LessonController', ['$scope', '$http', '$location', 'UserServi
   $scope.studentObject = StudentService.studentObject;
   $scope.studentList = StudentService.studentList;
 
-  console.log('logging studentList', $scope.studentList);
+  // console.log('logging studentList in LessonController', $scope.studentList);
 
-  $scope.addLesson = function() {
-    console.log('add lesson function running');
-    sweetAlert();
-  };
+//object for form to bind to.
+  $scope.lesson = {};
+
+//Creates Lesson when form is submitted on addlesson.html form.
+// POST Route to SERVER
+  $scope.addLesson = function(lesson) {
+    $scope.lesson = lesson;
+    // console.log('add lesson function running');
+    console.log('logging lesson: ', lesson);
+    console.log('logging scope.lesson: ', $scope.lesson);
+
+    // $http.post('/lesson', lesson).then(function(response){
+    //   console.log('back from the server with success!', response);
+    //   $location.path('/user');
+    //   sweetAlert();
+    //   });
+
+
+  }; //ends addLesson function
 
 // pop-up success alert once lesson has been added
   sweetAlert = function() {

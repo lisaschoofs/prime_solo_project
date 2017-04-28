@@ -5,7 +5,9 @@ var studentList = {
 };
 
 //selected student from list
-var studentObject = {};
+var studentObject = {
+  data: '',
+};
 
 function getStudents() {
   $http.get('/student').then(function(response){
@@ -15,10 +17,19 @@ function getStudents() {
 }); //end httpget
 }// end getStudents
 
+function studentView(student) {
+  //need to update the studentObject with the data of the specifc student clicked within the studentList.
+  console.log('logging what is passed into studentView: ', student);
+  studentObject.data = student;
+  console.log('logging studentObject', studentObject);
+  $location.path('/mystudent');
+}
+
 return {
   studentList: studentList,
   getStudents: getStudents,
-  studentObject: studentObject
+  studentObject: studentObject,
+  studentView: studentView
 };
 
 }]);
