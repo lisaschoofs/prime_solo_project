@@ -23,9 +23,7 @@ myApp.controller('StudentController', ['$scope', '$http', '$location', 'UserServ
   $scope.addStudent = function(student) {
       console.log('add student function running');
       student.teacher = $scope.userObject.id;
-      console.log('logging updated student before sending to DB', student);
     $http.post('/student', student).then(function(response){
-      console.log('logging student within post: ', student);
       console.log('back from the server with success!', response);
       $location.path('/user');
       sweetAlert();

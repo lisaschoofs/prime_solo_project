@@ -15,9 +15,10 @@ myApp.controller('UserController', ['$scope', '$http', '$location', 'UserService
     $location.path('/addlesson');
   };
 
-  $scope.studentView = function() {
+  $scope.studentView = function(student) {
     //need to update the studentObject with the data of the specifc student clicked within the studentList.
-    //target by id? or all data?
+    console.log('logging what is passed into studentView: ', student);
+    $scope.studentObject.id = student.id;
     console.log('logging studentObject', $scope.studentObject);
     $location.path('/mystudent');
   };

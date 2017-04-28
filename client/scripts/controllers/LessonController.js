@@ -1,6 +1,7 @@
-myApp.controller('LessonController', ['$scope', '$http', '$location', 'UserService', function($scope, $http, $location, UserService) {
+myApp.controller('LessonController', ['$scope', '$http', '$location', 'UserService', 'StudentService', function($scope, $http, $location, UserService, StudentService) {
   $scope.userObject = UserService.userObject;
   $scope.logout = UserService.logout;
+  $scope.studentObject = StudentService.studentObject;
   console.log('in LessonController');
   $scope.addLesson = function() {
     console.log('add lesson function running');

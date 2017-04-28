@@ -17,7 +17,8 @@ function getStudents() {
 
 return {
   studentList: studentList,
-  getStudents: getStudents
+  getStudents: getStudents,
+  studentObject: studentObject
 };
 
 }]);
