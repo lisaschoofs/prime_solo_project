@@ -14,6 +14,7 @@ var config = {
 
 var pool = new pg.Pool(config);
 
+//base get for all students from students table in the DB
 router.get('/', function(req, res) {
 
   pool.connect(function(error, db, done){
@@ -40,7 +41,6 @@ router.get('/', function(req, res) {
 }); //ends router.get
 
 
-
 // Handles new student post from StudentController's addStudent function
 router.post('/', function(req, res) {
   console.log('logging req.body: ', req.body);
@@ -52,7 +52,7 @@ router.post('/', function(req, res) {
     } else {
         console.log('made it to else in router.post');
 // UPDATE DB QUERY BELOW!
-      db.query('INSERT INTO "students" ("name", "username", "password", "instrument", "day", "teacher") VALUES ($2, $3, $4, $5, $6, $1);', [req.body.teacher, req.body.name, req.body.username, req.body.password, req.body.instrument, req.body.day], function(queryError, result){
+      db.query('INSERT INTO "students" ("name", "email", "instrument", "day", "teacher") VALUES ($1, $2, $3, $4, $5);', [req.body.name, req.body.email, req.body.instrument, req.body.day, req.body.teacher], function(queryError, result){
         done();
         if (queryError) {
           console.log('Error making query.');

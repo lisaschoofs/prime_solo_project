@@ -5,10 +5,8 @@ myApp.controller('StudentController', ['$scope', '$http', '$location', 'UserServ
   console.log('logging userObject', $scope.userObject);
   $scope.logout = UserService.logout;
   $scope.student = {
-    // teacher: userObject.id,
     name: '',
-    username: '',
-    password: '',
+    email: '',
     instrument: '',
     day: '',
   };
@@ -24,7 +22,7 @@ myApp.controller('StudentController', ['$scope', '$http', '$location', 'UserServ
 
   $scope.addStudent = function(student) {
       console.log('add student function running');
-      student.teacher = $scope.userObject.userName;
+      student.teacher = $scope.userObject.id;
       console.log('logging updated student before sending to DB', student);
     $http.post('/student', student).then(function(response){
       // $scope.getMessages();
