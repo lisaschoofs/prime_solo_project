@@ -13,6 +13,7 @@ myApp.controller('UserController', ['$scope', '$http', '$location', 'UserService
 
   $scope.addLesson = function() {
     $location.path('/addlesson');
+    getStudents();
   };
 
   $scope.studentView = function(student) {
@@ -21,6 +22,8 @@ myApp.controller('UserController', ['$scope', '$http', '$location', 'UserService
     $scope.studentObject.id = student.id;
     console.log('logging studentObject', $scope.studentObject);
     $location.path('/mystudent');
+
+
   };
 
   //runs getStudents function to get all students from the database

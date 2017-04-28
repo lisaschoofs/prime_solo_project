@@ -8,10 +8,18 @@
         <div class="form-group">
           <label for="studentDropdown">Student</label>
           <!-- this needs to access the student get w/ teacher filter and dynamically load up the students -->
-          <select class="form-control" id="exampleSelect1">
+
+          <!-- <select class="form-control" id="exampleSelect1" ng-repeat="student in studentList.students">
             <option>student A</option>
             <option>student B</option>
-          </select>
+          </select> -->
+
+          <li ng-repeat="student in studentList.students" ng-show="student.teacher == userObject.id">
+            <a ng-click="$scope.studentObject = student">
+              {{student.name}}
+            </a>
+          </li>
+
         </div>
         <div class="form-group">
           <label for="date">Lesson Date</label>
