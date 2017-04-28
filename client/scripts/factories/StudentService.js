@@ -4,6 +4,9 @@ var studentList = {
   students: []
 };
 
+//selected student from list
+var studentObject = {};
+
 function getStudents() {
   $http.get('/student').then(function(response){
     studentList.students = response.data;

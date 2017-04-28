@@ -7,7 +7,7 @@
       <h2>My Students</h2>
       <p>sweet, sweet list of students to go here</p>
       <ul ng-repeat="student in studentList.students">
-          <li ng-click="studentView()" >{{ student.name + " " + student.instrument }}</li>
+          <li ng-click="studentView()" ng-show="student.teacher == userObject.id" >{{ student.name + " " + student.instrument }}</li>
       </ul>
     </div>
     <div class="col-md-6">
