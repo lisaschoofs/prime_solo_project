@@ -52,7 +52,7 @@ router.post('/', function(req, res) {
     } else {
         console.log('made it to else in router.post');
 // UPDATE DB QUERY BELOW!
-      db.query('INSERT INTO "lessons" ("student", "date", "description") VALUES ($1, $2, $3);', [req.body.student, req.body.date, req.body.description], function(queryError, result){
+      db.query('INSERT INTO "lessons" ("student", "date", "description") VALUES ($1, $2, $3);', [req.body.student.id, req.body.date, req.body.description], function(queryError, result){
         done();
         if (queryError) {
           console.log('Error making query.');

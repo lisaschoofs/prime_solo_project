@@ -21,12 +21,6 @@ console.log('logging student object: ', $scope.studentObject);
 // POST Route to SERVER
   $scope.saveLesson = function(lesson) {
     $scope.lesson = lesson;
-    // for (var i = 0; i < $scope.studentList.students.length; i++) {
-    //   if (lesson.student == $scope.studentList.students[i].name) {
-    //     $scope.lesson.email == $scope.studentList.student[i].email;
-    //   }
-    // }
-
     $scope.lesson.date = moment(lesson.date).subtract(10, 'days').calendar();
     console.log('add lesson function running');
     console.log('logging lesson: ', lesson);
