@@ -10,9 +10,8 @@
           </div> -->
         <div class="form-group">
           <label for="studentDropdown">Student</label>
-          <select class="form-control" val="Select Student">
-            <option ng-repeat="student in studentList.students" ng-show="student.teacher == userObject.id" value="{{lesson.student}}">{{student.name}}</option>
-            <!-- <option ng-repeat="student in studentList.students" ng-show="student.teacher == userObject.id" ng-model="lesson.student">{{student.name}}</option> -->
+          <select class="form-control" val="Select Student" ng-model="lesson.student">
+            <option ng-repeat="student in studentList.students" ng-show="student.teacher == userObject.id" >{{student.name}}</option>
           </select>
         </div>
 

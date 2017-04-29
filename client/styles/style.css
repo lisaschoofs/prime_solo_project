@@ -8,16 +8,16 @@ main {
 }
 
 .top {
-  padding: 100px;
+  padding: 90px;
   text-align: center;
 }
 
 .login {
   padding: 25px;
   text-align: center;
-  border-style: solid;
+  /*border-style: solid;
   border-radius: 5px;
-  border-width: 1px;
+  border-width: 1px;*/
   border-color: #4357AD;
 }
 

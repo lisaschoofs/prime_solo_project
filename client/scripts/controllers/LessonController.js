@@ -20,12 +20,11 @@ myApp.controller('LessonController', ['$scope', '$http', '$location', 'UserServi
     console.log('logging lesson: ', lesson);
     console.log('logging scope.lesson: ', $scope.lesson);
 
-    // $http.post('/lesson', lesson).then(function(response){
-    //   console.log('back from the server with success!', response);
-    //   $location.path('/user');
-    //   sweetAlert();
-    //   });
-
+    $http.post('/lesson', lesson).then(function(response){
+      console.log('back from the server with success!', response);
+      $location.path('/user');
+      sweetAlert();
+      });
 
   }; //ends addLesson function
 
