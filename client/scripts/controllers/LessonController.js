@@ -34,7 +34,7 @@ console.log('logging student object: ', $scope.studentObject);
       sweetAlert();
     });
     //function that sends email to student with lesson information
-    // $scope.sendEmail();
+    $scope.sendEmail(lesson);
   }; //ends addLesson function
 
   $scope.getLessons();

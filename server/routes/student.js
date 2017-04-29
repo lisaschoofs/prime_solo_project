@@ -31,7 +31,7 @@ router.get('/', function(req, res) {
           res.send(500);
         } else {
 
-          console.log(result);
+          // console.log(result);
           res.send(result.rows);
           //rows is the array of objects. result would give us more info than we need.
         }//ends else
@@ -58,7 +58,7 @@ router.post('/', function(req, res) {
           console.log('Error making query.');
           res.sendStatus(500);
         } else {
-          console.log(result);
+          // console.log(result);
           res.sendStatus(201);
 
         }//ends else

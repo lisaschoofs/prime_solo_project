@@ -31,7 +31,7 @@ router.get('/', function(req, res) {
           res.send(500);
         } else {
 
-          console.log(result);
+          // console.log(result);
           res.send(result.rows);
           //rows is the array of objects. result would give us more info than we need.
         }//ends else
@@ -52,7 +52,7 @@ router.post('/', function(req, res) {
     } else {
         console.log('made it to else in router.post');
 // UPDATE DB QUERY BELOW!
-      db.query('INSERT INTO "lessons" ("student", "date", "description") VALUES ($1, $2, $3);', [req.body.student.id, req.body.date, req.body.description], function(queryError, result){
+      db.query('INSERT INTO "lessons" ("student", "date", "description", "email") VALUES ($1, $2, $3, $4);', [req.body.student.id, req.body.date, req.body.description, req.body.student.email], function(queryError, result){
         done();
         if (queryError) {
           console.log('Error making query.');
