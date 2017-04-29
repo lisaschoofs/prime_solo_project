@@ -24,6 +24,7 @@ function getStudents() {
     studentList.students = response.data;
   console.log('response.data in getStudents: ', response.data);
   console.log('studentList in getStudents: ', studentList);
+  console.log('studentObject.name', studentObject.name);
 }); //end httpget
 }// end getStudents
 
@@ -32,7 +33,7 @@ function studentView(student) {
   //need to update the studentObject with the data of the specifc student clicked within the studentList.
   console.log('logging what is passed into studentView: ', student);
   studentObject.data = student;
-  console.log('logging studentObject', studentObject);
+  console.log('logging studentObject in studentView function', studentObject);
   $location.path('/mystudent');
 }
 
@@ -44,6 +45,7 @@ function getLessons() {
     // }
   console.log('response.data in getLessons: ', response.data);
   console.log('lessonList in getLessons: ', lessonList);
+  // console.log(lesson.student);
 }); //end httpget
 }
 

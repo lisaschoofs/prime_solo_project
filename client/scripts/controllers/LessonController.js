@@ -17,6 +17,14 @@ console.log('logging student object: ', $scope.studentObject);
 //object for form to bind to.
   $scope.lesson = {};
 
+$scope.viewDetails = function(lesson){
+  console.log('viewDetails');
+  swal(
+  'Lesson Details for ' + lesson.date,
+  lesson.description,
+  'success'
+);
+};
 //Creates Lesson when form is submitted on addlesson.html form.
 // POST Route to SERVER
   $scope.saveLesson = function(lesson) {
@@ -48,6 +56,7 @@ console.log('logging student object: ', $scope.studentObject);
   });
     $location.path('/user');
 };
+
 
 //   $scope.submitForm = function(info){
 //     $scope.sendEmail(info);
