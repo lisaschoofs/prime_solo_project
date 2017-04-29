@@ -23,6 +23,7 @@
     "grunt-contrib-watch": "^1.0.0",
     "jquery": "^3.2.1",
     "moment": "^2.18.1",
+    "nodemailer": "^4.0.1",
     "pag": "^1.0.1",
     "passport": "^0.2.2",
     "passport-local": "^1.0.0",

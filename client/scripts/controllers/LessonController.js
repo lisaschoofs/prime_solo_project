@@ -1,4 +1,4 @@
-myApp.controller('LessonController', ['$scope', '$http', '$location', 'UserService', 'StudentService', function($scope, $http, $location, UserService, StudentService) {
+myApp.controller('LessonController', ['$scope', '$http', '$location', 'UserService', 'StudentService', 'MailService', function($scope, $http, $location, UserService, StudentService, MailService) {
   // console.log('in LessonController');
   $scope.getStudents = StudentService.getStudents;
   $scope.getStudents();
@@ -10,6 +10,7 @@ myApp.controller('LessonController', ['$scope', '$http', '$location', 'UserServi
   $scope.lessonObject = StudentService.lessonObject;
   $scope.getLessons = StudentService.getLessons;
   $scope.addLesson = StudentService.addLesson;
+  $scope.sendEmail = MailService.sendEmail;
 
   // console.log('logging studentList in LessonController', $scope.studentList);
 console.log('logging student object: ', $scope.studentObject);
@@ -30,7 +31,7 @@ console.log('logging student object: ', $scope.studentObject);
       $location.path('/user');
       sweetAlert();
       });
-
+    $scope.sendEmail();
   }; //ends addLesson function
 
   $scope.getLessons();
@@ -45,5 +46,10 @@ console.log('logging student object: ', $scope.studentObject);
   });
     $location.path('/user');
 };
+
+//   $scope.submitForm = function(info){
+//     $scope.sendEmail(info);
+// };
+
 
 }]);
