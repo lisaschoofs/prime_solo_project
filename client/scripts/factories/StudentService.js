@@ -39,6 +39,9 @@ function studentView(student) {
 function getLessons() {
   $http.get('/lesson').then(function(response){
     lessonList.lessons = response.data;
+    // for (var i = 0; i < lessonList.length; i++) {
+    //   lessonList[i].lesson
+    // }
   console.log('response.data in getLessons: ', response.data);
   console.log('lessonList in getLessons: ', lessonList);
 }); //end httpget

@@ -19,9 +19,9 @@ console.log('logging student object: ', $scope.studentObject);
 //Creates Lesson when form is submitted on addlesson.html form.
 // POST Route to SERVER
   $scope.saveLesson = function(lesson) {
-    // $scope.lesson = lesson;
-    // $scope.lesson.date = moment(lesson.date).subtract(10, 'days').calendar();
-    // console.log('add lesson function running');
+    $scope.lesson = lesson;
+    $scope.lesson.date = moment(lesson.date).subtract(10, 'days').calendar();
+    console.log('add lesson function running');
     console.log('logging lesson: ', lesson);
     console.log('logging scope.lesson: ', $scope.lesson);
 

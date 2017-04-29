@@ -10,8 +10,10 @@
           <p>{{ lesson.student + lesson.date + " " + lesson.description }}</p>
       </div>
     </div>
-    <!-- <p>{{  studentObject.data.instrument  }}</p> -->
     <div class="col-md-6">
+      <h2>{{studentObject.data.name}}</h2>
+      <h3>Lesson Day: {{studentObject.data.day}} </h3>
+      <p>Instrument: {{  studentObject.data.instrument  }}</p>      
       <button class="btn btn-default btn-lg" ng-click="addLesson()">Add A New Lesson</button>
     </div>
   </div>
