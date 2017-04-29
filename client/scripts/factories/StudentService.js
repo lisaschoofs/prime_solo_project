@@ -44,6 +44,9 @@ function getLessons() {
 }); //end httpget
 }
 
+function addLesson() {
+  $location.path('/addlesson');
+}
 
 return {
   studentList: studentList,
@@ -52,7 +55,8 @@ return {
   studentView: studentView,
   lessonList: lessonList,
   lessonObject: lessonObject,
-  getLessons: getLessons
+  getLessons: getLessons,
+  addLesson: addLesson
 };
 
 }]);

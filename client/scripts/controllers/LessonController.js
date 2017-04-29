@@ -9,15 +9,16 @@ myApp.controller('LessonController', ['$scope', '$http', '$location', 'UserServi
   $scope.lessonList = StudentService.lessonList;
   $scope.lessonObject = StudentService.lessonObject;
   $scope.getLessons = StudentService.getLessons;
+  $scope.addLesson = StudentService.addLesson;
 
   // console.log('logging studentList in LessonController', $scope.studentList);
-
+console.log('logging student object: ', $scope.studentObject);
 //object for form to bind to.
   $scope.lesson = {};
 
 //Creates Lesson when form is submitted on addlesson.html form.
 // POST Route to SERVER
-  $scope.addLesson = function(lesson) {
+  $scope.saveLesson = function(lesson) {
     // $scope.lesson = lesson;
     // $scope.lesson.date = moment(lesson.date).subtract(10, 'days').calendar();
     // console.log('add lesson function running');
