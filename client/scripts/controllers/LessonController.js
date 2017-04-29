@@ -6,6 +6,9 @@ myApp.controller('LessonController', ['$scope', '$http', '$location', 'UserServi
   $scope.logout = UserService.logout;
   $scope.studentObject = StudentService.studentObject;
   $scope.studentList = StudentService.studentList;
+  $scope.lessonList = StudentService.lessonList;
+  $scope.lessonObject = StudentService.lessonObject;
+  $scope.getLessons = StudentService.getLessons;
 
   // console.log('logging studentList in LessonController', $scope.studentList);
 
@@ -15,7 +18,8 @@ myApp.controller('LessonController', ['$scope', '$http', '$location', 'UserServi
 //Creates Lesson when form is submitted on addlesson.html form.
 // POST Route to SERVER
   $scope.addLesson = function(lesson) {
-    $scope.lesson = lesson;
+    // $scope.lesson = lesson;
+    // $scope.lesson.date = moment(lesson.date).subtract(10, 'days').calendar();
     // console.log('add lesson function running');
     console.log('logging lesson: ', lesson);
     console.log('logging scope.lesson: ', $scope.lesson);
@@ -27,6 +31,9 @@ myApp.controller('LessonController', ['$scope', '$http', '$location', 'UserServi
       });
 
   }; //ends addLesson function
+
+  $scope.getLessons();
+
 
 // pop-up success alert once lesson has been added
   sweetAlert = function() {

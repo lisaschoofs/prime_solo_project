@@ -14,31 +14,31 @@ var config = {
 
 var pool = new pg.Pool(config);
 
+//gets all lessons from database
+router.get('/', function(req, res) {
 
-// router.get('/', function(req, res) {
-//
-//   pool.connect(function(error, db, done){
-//     if(error) {
-//       console.log("error connecting to the database.");
-//       res.send(500);
-//
-//     } else {
-//
-//       db.query('SELECT * FROM "students";', function(queryError, result){
-//         done();
-//         if (queryError) {
-//           console.log('Error making query.');
-//           res.send(500);
-//         } else {
-//
-//           console.log(result);
-//           res.send(result.rows);
-//           //rows is the array of objects. result would give us more info than we need.
-//         }//ends else
-//       }); //ends db query
-//     } //ends else
-//   }); //ends pool.connect
-// }); //ends router.get
+  pool.connect(function(error, db, done){
+    if(error) {
+      console.log("error connecting to the database.");
+      res.send(500);
+
+    } else {
+
+      db.query('SELECT * FROM "lessons";', function(queryError, result){
+        done();
+        if (queryError) {
+          console.log('Error making query.');
+          res.send(500);
+        } else {
+
+          console.log(result);
+          res.send(result.rows);
+          //rows is the array of objects. result would give us more info than we need.
+        }//ends else
+      }); //ends db query
+    } //ends else
+  }); //ends pool.connect
+}); //ends router.get
 
 
 // Handles new lesson post from LessonController's addLesson function

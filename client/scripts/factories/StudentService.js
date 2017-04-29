@@ -9,13 +9,24 @@ var studentObject = {
   data: '',
 };
 
+var lessonList = {
+  lessons: []
+};
+
+//selected student from list
+var lessonObject = {
+  data: '',
+};
+
+
 function getStudents() {
   $http.get('/student').then(function(response){
     studentList.students = response.data;
-  console.log('response.data in getStudents: ', response.data);
-  console.log('studentList in getStudents: ', studentList);
+  // console.log('response.data in getStudents: ', response.data);
+  // console.log('studentList in getStudents: ', studentList);
 }); //end httpget
 }// end getStudents
+
 
 function studentView(student) {
   //need to update the studentObject with the data of the specifc student clicked within the studentList.
@@ -25,11 +36,23 @@ function studentView(student) {
   $location.path('/mystudent');
 }
 
+function getLessons() {
+  $http.get('/lesson').then(function(response){
+    lessonList.lessons = response.data;
+  console.log('response.data in getLessons: ', response.data);
+  console.log('lessonList in getLessons: ', lessonList);
+}); //end httpget
+}
+
+
 return {
   studentList: studentList,
   getStudents: getStudents,
   studentObject: studentObject,
-  studentView: studentView
+  studentView: studentView,
+  lessonList: lessonList,
+  lessonObject: lessonObject,
+  getLessons: getLessons
 };
 
 }]);

@@ -1,5 +1,5 @@
 myApp.controller('StudentController', ['$scope', '$http', '$location', 'UserService', function($scope, $http, $location, UserService) {
-  console.log('in StudentController');
+  // console.log('in StudentController');
   $scope.userObject = UserService.userObject;
 
   console.log('logging userObject', $scope.userObject);

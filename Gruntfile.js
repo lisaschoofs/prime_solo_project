@@ -35,6 +35,12 @@ module.exports = function(grunt){
         src: ['jquery.min.js'],
         dest: 'server/public/vendors/jquery/'
       },
+      moment: {
+        expand: true,
+        cwd: 'node_modules/moment/',
+        src: ['moment.js'],
+        dest: 'server/public/vendors/moment/'
+      },
       angular: {
         expand: true,
         cwd: 'node_modules/angular/',
