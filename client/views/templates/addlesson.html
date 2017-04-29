@@ -8,10 +8,20 @@
           <!-- <div ng-repeat="student in studentList.students" ng-show="student.teacher == userObject.id">
             <p> {{student.instrument}} </p>
           </div> -->
+
+        <!-- <div class="form-group">
+          <label for="studentDropdown">Student</label>
+          <select class="form-control" ng-model="lesson.student">
+            <option ng-repeat="student in studentList.students" ng-show="student.teacher == userObject.id" >{{student.name}}</option>
+          </select>
+        </div> -->
+
+        <!-- ng-show="student.teacher == userObject.id"  -->
+
         <div class="form-group">
           <label for="studentDropdown">Student</label>
-          <select class="form-control" val="Select Student" ng-model="lesson.student">
-            <option ng-repeat="student in studentList.students" ng-show="student.teacher == userObject.id" >{{student.name}}</option>
+          <select class="form-control" ng-model="lesson.student"
+                  ng-options="student.name for student in studentList.students">
           </select>
         </div>
 

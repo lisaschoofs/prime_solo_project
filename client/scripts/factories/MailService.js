@@ -2,7 +2,7 @@ myApp.factory('MailService', ['$http', function($http){
   return {
     sendEmail: function(){
       $http.post('/nodemailer' ).then(function(response){
-        console.log("Email has been sent: ", response.data);
+        console.log('Email has been sent: ', response.data);
       });
     }
   };

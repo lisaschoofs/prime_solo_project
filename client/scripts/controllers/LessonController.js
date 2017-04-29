@@ -21,21 +21,29 @@ console.log('logging student object: ', $scope.studentObject);
 // POST Route to SERVER
   $scope.saveLesson = function(lesson) {
     $scope.lesson = lesson;
+    // for (var i = 0; i < $scope.studentList.students.length; i++) {
+    //   if (lesson.student == $scope.studentList.students[i].name) {
+    //     $scope.lesson.email == $scope.studentList.student[i].email;
+    //   }
+    // }
+
     $scope.lesson.date = moment(lesson.date).subtract(10, 'days').calendar();
     console.log('add lesson function running');
     console.log('logging lesson: ', lesson);
     console.log('logging scope.lesson: ', $scope.lesson);
 
+    //POST saves lesson to database
     $http.post('/lesson', lesson).then(function(response){
       console.log('back from the server with success!', response);
       $location.path('/user');
+      //sweetAlert creates success modal
       sweetAlert();
-      });
-    $scope.sendEmail();
+    });
+    //function that sends email to student with lesson information
+    // $scope.sendEmail();
   }; //ends addLesson function
 
   $scope.getLessons();
-
 
 // pop-up success alert once lesson has been added
   sweetAlert = function() {
