@@ -29,7 +29,8 @@ $scope.viewDetails = function(lesson){
 // POST Route to SERVER
   $scope.saveLesson = function(lesson) {
     $scope.lesson = lesson;
-    $scope.lesson.date = moment(lesson.date).format("MMM Do, YYYY");
+    // $scope.lesson.date = moment(lesson.date).format("MMM Do, YYYY");
+    $scope.lesson.date = moment(lesson.date).calendar('days');
     console.log('logging scope.lesson: ', $scope.lesson);
 
     //POST saves lesson to database

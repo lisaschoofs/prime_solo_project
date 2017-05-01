@@ -67,6 +67,28 @@ router.post('/', function(req, res) {
   }); //ends pool.connect
 }); //ends router
 
+router.delete('/', function(req, res){
+  var lessonId = req.params.id;
+  console.log(req.params.id);
 
+  pool.connect(function(errorConnectingToDatabase, db, done){
+    if(errorConnectingToDatabase) {
+      console.log('Error connecting to the database.');
+      res.send(500);
+    } else {
+      // deletes lesson from database, targeting by id
+      db.query('DELETE FROM lessons WHERE id =' + lessonId, function(queryError, result){
+        done();
+        if(queryError) {
+          console.log('Error making query.');
+          res.sendStatus(500);
+        } else {
+          console.log(result);
+          res.sendStatus(201);
+        }
+      });
+    }
+  });
+});
 
 module.exports = router;
