@@ -10,9 +10,12 @@
             <th>Date</th>
             <th>Description</th>
         </tr>
-        <tr ng-repeat="lesson in lessonList.lessons" ng-show="lesson.student == studentObject.data.id">
+        <tr ng-repeat="lesson in lessonList.lessons"
+            ng-show="lesson.student == studentObject.data.id">
           <td ng-click=viewDetails(lesson)>{{ lesson.date }} </td>
           <td ng-click=viewDetails(lesson)>{{ lesson.description }} </td>
+          <td><button class="btn btn-danger"
+                      ng-click="deleteLesson(lesson)">delete</button></td>
         </tr>
       </table>
     </div>

@@ -25,6 +25,14 @@ $scope.viewDetails = function(lesson){
   'success'
 );
 };
+
+$scope.deleteLesson = function(lesson) {
+  //DELETE to delete lesson from database
+  $http.delete('/lesson/' + lesson.id).then(function(response){
+    console.log('back from the server with success!', response);
+  });
+};
+
 //Creates Lesson when form is submitted on addlesson.html form.
 // POST Route to SERVER
   $scope.saveLesson = function(lesson) {

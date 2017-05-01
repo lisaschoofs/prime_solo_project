@@ -67,9 +67,12 @@ router.post('/', function(req, res) {
   }); //ends pool.connect
 }); //ends router
 
-router.delete('/', function(req, res){
+//Deletes lesson from the database
+router.delete('/:id', function(req, res){
+  console.log('logging req.body in router.delete: ', req.body);
+  console.log('req params: ', req.params);
   var lessonId = req.params.id;
-  console.log(req.params.id);
+  // console.log('logging lessonId: ', lessonId);
 
   pool.connect(function(errorConnectingToDatabase, db, done){
     if(errorConnectingToDatabase) {
@@ -78,6 +81,7 @@ router.delete('/', function(req, res){
     } else {
       // deletes lesson from database, targeting by id
       db.query('DELETE FROM lessons WHERE id =' + lessonId, function(queryError, result){
+      // db.query('DELETE FROM lessons WHERE id = 23', function(queryError, result){
         done();
         if(queryError) {
           console.log('Error making query.');
