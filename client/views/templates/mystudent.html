@@ -7,7 +7,7 @@
       <h2>Check out this student's lessons!</h2>
       <p>sweet, sweet list of lessons to go here</p>
       <div ng-repeat="lesson in lessonList.lessons" ng-show="lesson.student == studentObject.data.id" >
-          <p ng-click=viewDetails(lesson)>{{ lesson.student + lesson.date + " " + lesson.description }}</p>
+          <p ng-click=viewDetails(lesson)>{{ lesson.date + " " + lesson.description }}</p>
       </div>
     </div>
     <div class="col-md-6">

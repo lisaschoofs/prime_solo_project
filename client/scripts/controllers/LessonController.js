@@ -29,9 +29,7 @@ $scope.viewDetails = function(lesson){
 // POST Route to SERVER
   $scope.saveLesson = function(lesson) {
     $scope.lesson = lesson;
-    $scope.lesson.date = moment(lesson.date).subtract(10, 'days').calendar();
-    console.log('add lesson function running');
-    console.log('logging lesson: ', lesson);
+    $scope.lesson.date = moment(lesson.date).format("MMM Do, YYYY");
     console.log('logging scope.lesson: ', $scope.lesson);
 
     //POST saves lesson to database
@@ -42,7 +40,7 @@ $scope.viewDetails = function(lesson){
       sweetAlert();
     });
     //function that sends email to student with lesson information
-    $scope.sendEmail(lesson);
+    // $scope.sendEmail(lesson);
   }; //ends addLesson function
 
   $scope.getLessons();
