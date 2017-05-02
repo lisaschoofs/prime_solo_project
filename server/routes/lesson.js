@@ -65,8 +65,10 @@ router.post('/', function(req, res) {
   }); //ends pool.connect
 }); //ends router
 
-//Update lesson details, including 'assigned' boolean associated with email.
-router.put('/:lessonId', function(req, res){
+//Update lesson property of 'assigned' to TRUE once email has been sent to student.
+router.put('/:id', function(req, res){
+  console.log('logging req.body in router.put: ', req.body);
+  console.log('req params in put: ', req.params);
   var lessonId= req.params.id;
   console.log('logging lessonId in put: ', lessonId);
 
@@ -76,7 +78,7 @@ router.put('/:lessonId', function(req, res){
       res.send(500);
     } else {
       //NEED TO UPDATE QUERY for lesson update
-      db.query("UPDATE lessons SET status = 'FALSE' WHERE id = $1;", [lessonId], function(queryError, result){
+      db.query("UPDATE lessons SET assigned = 'TRUE' WHERE id =" + lessonId, function(queryError, result){
         done();
         if(queryError) {
           console.log('Error making query.');

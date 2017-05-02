@@ -26,17 +26,17 @@
       <a href="#user">Cancel</a>
     </form>
   </div> -->
-  <h2>{{studentObject.data.name}}</h2>
-  <p> {{lessonObject.data.date}} </p>
-  <p> {{lessonObject.data.description}} </p>
-  <p> {{lessonObject.data.email}} </p>
-  <p> {{lessonObject.data.student}} </p>
+  <h2>Student: {{studentObject.data.name}}</h2>
+  <div class=well>Date:  {{lessonObject.data.date}} </div>
+  <div class=well>Description: {{lessonObject.data.description}} </div>
   <!-- Somehow display if lesson has been assigned or not. If/else logic to show email button. Or checkbox to email student? -->
-  <button type="button" class="btn btn-success">Email to Student</button>
+  <!-- ng-show="lessonObject.data.assigned = FALSE" -->
+  <button type="button" class="btn btn-success"
+          ng-click="assignLesson(lessonObject.data)">Email to Student</button>
+  <!-- <button type="button" class="btn btn-success" ng-show="lessonObject.data.assigned = TRUE" disabled>Student has been emailed</button> -->
   <button type="button" class="btn btn-primary">Update Details</button>
   <button type="button" class="btn btn-info">Go back to last page</button>
   <button type="button" class="btn btn-danger">Delete this lesson</button>
-  <p>link to return to previous page...</p>
 </div>
 
 </div>

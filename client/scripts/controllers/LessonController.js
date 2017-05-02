@@ -59,6 +59,20 @@ $scope.deleteLesson = function(lesson) {
     $location.path('/user');
 };
 
+//
+$scope.assignLesson = function(lesson) {
+  //POST saves lesson to database
+  console.log('logging lesson.id in assignLesson: ', lesson.id);
+
+  $http.put('/lesson/' + lesson.id).then(function(response){
+    console.log('back from the server with success!', response);
+    $location.path('/user');
+    //sweetAlert creates success modal
+    sweetAlert();
+  });
+  //sends email to student
+  // $scope.sendEmail(lesson);
+};//ends assignLesson
 
 //   $scope.submitForm = function(info){
 //     $scope.sendEmail(info);
