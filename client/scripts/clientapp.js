@@ -44,6 +44,15 @@ myApp.config(['$routeProvider', '$locationProvider',
         }]
       }
     })
+    .when('/updatelesson', {
+      templateUrl: '/views/templates/updatelesson.html',
+      controller: 'LessonController',
+      resolve: {
+        getuser : ['UserService', function(UserService){
+          return UserService.getuser();
+        }]
+      }
+    })
     .when('/mystudent', {
       templateUrl: '/views/templates/mystudent.html',
       controller: 'LessonController',

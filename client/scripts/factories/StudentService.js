@@ -50,6 +50,18 @@ function addLesson() {
   $location.path('/addlesson');
 }
 
+function viewDetails(lesson) {
+  console.log('inside viewDetails function: ', lesson);
+  lessonObject.data = lesson;
+  console.log('logging lessonObject: ', lessonObject);
+  $location.path('/updatelesson');
+//   swal(
+//   'Lesson Details for ' + lesson.date,
+//   lesson.description,
+//   'success'
+// );
+}
+
 return {
   studentList: studentList,
   getStudents: getStudents,
@@ -58,7 +70,8 @@ return {
   lessonList: lessonList,
   lessonObject: lessonObject,
   getLessons: getLessons,
-  addLesson: addLesson
+  addLesson: addLesson,
+  viewDetails: viewDetails
 };
 
 }]);

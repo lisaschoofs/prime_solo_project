@@ -11,19 +11,13 @@ myApp.controller('LessonController', ['$scope', '$http', '$location', 'UserServi
   $scope.getLessons = StudentService.getLessons;
   $scope.addLesson = StudentService.addLesson;
   $scope.sendEmail = MailService.sendEmail;
+  $scope.lessonObject = StudentService.lessonObject;
+  $scope.viewDetails = StudentService.viewDetails;
 
 console.log('logging student object: ', $scope.studentObject);
 //object for form to bind to.
-  $scope.lesson = {};
 
-$scope.viewDetails = function(lesson){
-  console.log('viewDetails');
-  swal(
-  'Lesson Details for ' + lesson.date,
-  lesson.description,
-  'success'
-);
-};
+  $scope.lesson = {};
 
 $scope.deleteLesson = function(lesson) {
   //DELETE to delete lesson from database

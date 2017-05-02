@@ -33,7 +33,7 @@ router.get('/', function(req, res) {
 
           res.send(result.rows);
 
-        }//ends else
+        } //ends else
       }); //ends db query
     } //ends else
   }); //ends pool.connect
@@ -50,7 +50,7 @@ router.post('/', function(req, res) {
 
     } else {
         console.log('made it to else in router.post');
-      db.query('INSERT INTO "lessons" ("student", "date", "description", "email") VALUES ($1, $2, $3, $4);', [req.body.student.id, req.body.date, req.body.description, req.body.student.email], function(queryError, result){
+      db.query('INSERT INTO "lessons" ("student", "date", "description", "email", "assigned") VALUES ($1, $2, $3, $4, "FALSE");', [req.body.student.id, req.body.date, req.body.description, req.body.student.email], function(queryError, result){
         done();
         if (queryError) {
           console.log('Error making query.');
@@ -59,7 +59,32 @@ router.post('/', function(req, res) {
           console.log(result);
           res.sendStatus(201);
 
-        }//ends else
+        } //ends else
+      }); //ends db query
+    } //ends else
+  }); //ends pool.connect
+}); //ends router
+
+//Update lesson details, including 'assigned' boolean associated with email.
+router.put('/:lessonId', function(req, res){
+  var lessonId= req.params.id;
+  console.log('logging lessonId in put: ', lessonId);
+
+  pool.connect(function(errorConnectingToDatabase, db, done){
+    if(errorConnectingToDatabase) {
+      console.log('Error connecting to the database.');
+      res.send(500);
+    } else {
+      //NEED TO UPDATE QUERY for lesson update
+      db.query("UPDATE lessons SET status = 'FALSE' WHERE id = $1;", [lessonId], function(queryError, result){
+        done();
+        if(queryError) {
+          console.log('Error making query.');
+          res.sendStatus(500);
+        } else {
+          console.log(result);
+          res.sendStatus(201);
+        } //ends else
       }); //ends db query
     } //ends else
   }); //ends pool.connect
@@ -85,7 +110,7 @@ router.delete('/:id', function(req, res){
         } else {
           console.log(result);
           res.sendStatus(201);
-        }//ends else
+        } //ends else
       }); //ends db query
     } //ends else
   }); //ends pool.connect
