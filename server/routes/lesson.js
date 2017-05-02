@@ -14,7 +14,7 @@ var config = {
 
 var pool = new pg.Pool(config);
 
-//gets all lessons from database
+//Gets all lessons from database
 router.get('/', function(req, res) {
 
   pool.connect(function(error, db, done){
@@ -31,9 +31,8 @@ router.get('/', function(req, res) {
           res.send(500);
         } else {
 
-          // console.log(result);
           res.send(result.rows);
-          //rows is the array of objects. result would give us more info than we need.
+
         }//ends else
       }); //ends db query
     } //ends else
@@ -51,7 +50,6 @@ router.post('/', function(req, res) {
 
     } else {
         console.log('made it to else in router.post');
-// UPDATE DB QUERY BELOW!
       db.query('INSERT INTO "lessons" ("student", "date", "description", "email") VALUES ($1, $2, $3, $4);', [req.body.student.id, req.body.date, req.body.description, req.body.student.email], function(queryError, result){
         done();
         if (queryError) {
@@ -67,21 +65,19 @@ router.post('/', function(req, res) {
   }); //ends pool.connect
 }); //ends router
 
-//Deletes lesson from the database
+
+//Deletes lesson from the database by targeting ID
 router.delete('/:id', function(req, res){
   console.log('logging req.body in router.delete: ', req.body);
   console.log('req params: ', req.params);
   var lessonId = req.params.id;
-  // console.log('logging lessonId: ', lessonId);
 
   pool.connect(function(errorConnectingToDatabase, db, done){
     if(errorConnectingToDatabase) {
       console.log('Error connecting to the database.');
       res.send(500);
     } else {
-      // deletes lesson from database, targeting by id
       db.query('DELETE FROM lessons WHERE id =' + lessonId, function(queryError, result){
-      // db.query('DELETE FROM lessons WHERE id = 23', function(queryError, result){
         done();
         if(queryError) {
           console.log('Error making query.');
@@ -89,10 +85,10 @@ router.delete('/:id', function(req, res){
         } else {
           console.log(result);
           res.sendStatus(201);
-        }
-      });
-    }
-  });
-});
+        }//ends else
+      }); //ends db query
+    } //ends else
+  }); //ends pool.connect
+}); //ends router
 
 module.exports = router;

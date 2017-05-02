@@ -1,5 +1,6 @@
 myApp.factory('StudentService',['$http', '$location', function($http, $location){
 
+//all student from database
 var studentList = {
   students: []
 };
@@ -9,22 +10,21 @@ var studentObject = {
   data: '',
 };
 
+//all lessons from database
 var lessonList = {
   lessons: []
 };
 
-//selected student from list
+//selected lesson from list
 var lessonObject = {
   data: '',
 };
 
-
+//gets all students from the database
 function getStudents() {
   $http.get('/student').then(function(response){
     studentList.students = response.data;
-  console.log('response.data in getStudents: ', response.data);
   console.log('studentList in getStudents: ', studentList);
-  console.log('studentObject.name', studentObject.name);
 }); //end httpget
 }// end getStudents
 
@@ -40,11 +40,8 @@ function studentView(student) {
 function getLessons() {
   $http.get('/lesson').then(function(response){
     lessonList.lessons = response.data;
-    // for (var i = 0; i < lessonList.length; i++) {
-    //   lessonList[i].lesson
-    // }
-  console.log('response.data in getLessons: ', response.data);
-  console.log('lessonList in getLessons: ', lessonList);
+  // console.log('response.data in getLessons: ', response.data);
+  // console.log('lessonList in getLessons: ', lessonList);
   // console.log(lesson.student);
 }); //end httpget
 }

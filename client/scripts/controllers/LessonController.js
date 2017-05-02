@@ -12,7 +12,6 @@ myApp.controller('LessonController', ['$scope', '$http', '$location', 'UserServi
   $scope.addLesson = StudentService.addLesson;
   $scope.sendEmail = MailService.sendEmail;
 
-  // console.log('logging studentList in LessonController', $scope.studentList);
 console.log('logging student object: ', $scope.studentObject);
 //object for form to bind to.
   $scope.lesson = {};
@@ -31,6 +30,7 @@ $scope.deleteLesson = function(lesson) {
   $http.delete('/lesson/' + lesson.id).then(function(response){
     console.log('back from the server with success!', response);
   });
+
 };
 
 //Creates Lesson when form is submitted on addlesson.html form.
@@ -38,8 +38,9 @@ $scope.deleteLesson = function(lesson) {
   $scope.saveLesson = function(lesson) {
     $scope.lesson = lesson;
     // $scope.lesson.date = moment(lesson.date).format("MMM Do, YYYY");
+    //reformats date before it's sent to the database
     $scope.lesson.date = moment(lesson.date).calendar('days');
-    console.log('logging scope.lesson: ', $scope.lesson);
+    // console.log('logging scope.lesson: ', $scope.lesson);
 
     //POST saves lesson to database
     $http.post('/lesson', lesson).then(function(response){

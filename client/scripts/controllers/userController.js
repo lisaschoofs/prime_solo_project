@@ -8,15 +8,13 @@ myApp.controller('UserController', ['$scope', '$http', '$location', 'UserService
   $scope.studentView = StudentService.studentView;
   $scope.addLesson = StudentService.addLesson;
 
-//controller specifc fucntions
+//controller specifc functions
   $scope.newStudent = function() {
     $location.path('/newstudent');
   };
 
   //get all students from the database
   $scope.getStudents();
-
-  // console.log('logging scope.studentList', $scope.studentList);
 
   // $scope.studentView();
 }]);

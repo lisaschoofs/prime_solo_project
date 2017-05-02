@@ -1,8 +1,15 @@
 myApp.controller('StudentController', ['$scope', '$http', '$location', 'UserService', function($scope, $http, $location, UserService) {
-  // console.log('in StudentController');
-  $scope.userObject = UserService.userObject;
 
-  console.log('logging userObject', $scope.userObject);
+  $scope.userObject = UserService.userObject;
+  $scope.daysArray = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday'
+  ];
   $scope.logout = UserService.logout;
   $scope.student = {
     name: '',
@@ -20,8 +27,9 @@ myApp.controller('StudentController', ['$scope', '$http', '$location', 'UserServ
   });
 };
 
+//POST route to add student to the database
   $scope.addStudent = function(student) {
-      console.log('add student function running');
+      //adds id of current user/teacher to student
       student.teacher = $scope.userObject.id;
     $http.post('/student', student).then(function(response){
       console.log('back from the server with success!', response);

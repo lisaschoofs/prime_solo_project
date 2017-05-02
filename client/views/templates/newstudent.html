@@ -17,9 +17,15 @@
           <label for="instrument">Instrument: </label>
           <input class="form-control" type="text" ng-model="student.instrument" />
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="Lesson Day">Regular Lesson Day: </label>
           <input class="form-control" type="text" ng-model="student.day" />
+        </div> -->
+        <div class="form-group">
+          <label for="Lesson Day">Lesson Day:</label>
+          <select class="form-control" ng-model="student.day">
+                    <option ng-repeat="day in daysArray">{{ day }}</option>
+          </select>
         </div>
         <input class="btn btn-default" type="submit" name="submit" value="Add Student" />
         <a href="#user">Cancel</a>
