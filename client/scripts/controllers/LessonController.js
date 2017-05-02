@@ -33,7 +33,7 @@ $scope.deleteLesson = function(lesson) {
     $scope.lesson = lesson;
     // $scope.lesson.date = moment(lesson.date).format("MMM Do, YYYY");
     //reformats date before it's sent to the database
-    $scope.lesson.date = moment(lesson.date).calendar('days');
+    // $scope.lesson.date = moment(lesson.date).calendar('days');
     // console.log('logging scope.lesson: ', $scope.lesson);
 
     //POST saves lesson to database

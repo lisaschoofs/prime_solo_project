@@ -50,7 +50,7 @@ router.post('/', function(req, res) {
 
     } else {
         console.log('made it to else in router.post');
-      db.query('INSERT INTO "lessons" ("student", "date", "description", "email", "assigned") VALUES ($1, $2, $3, $4, "FALSE");', [req.body.student.id, req.body.date, req.body.description, req.body.student.email], function(queryError, result){
+      db.query('INSERT INTO "lessons" ("student", "date", "description", "email", "assigned") VALUES ($1, $2, $3, $4, FALSE);', [req.body.student.id, req.body.date, req.body.description, req.body.student.email], function(queryError, result){
         done();
         if (queryError) {
           console.log('Error making query.');
