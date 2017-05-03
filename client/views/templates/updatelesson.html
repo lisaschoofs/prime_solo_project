@@ -32,11 +32,11 @@
   <!-- Somehow display if lesson has been assigned or not. If/else logic to show email button. Or checkbox to email student? -->
   <!-- ng-show="lessonObject.data.assigned = FALSE" -->
   <button type="button" class="btn btn-success"
-          ng-click="assignLesson(lessonObject.data)">Email to Student</button>
+          ng-click="sendEmail(lessonObject.data)">Email to Student</button>
   <!-- <button type="button" class="btn btn-success" ng-show="lessonObject.data.assigned = TRUE" disabled>Student has been emailed</button> -->
   <button type="button" class="btn btn-primary">Update Details</button>
   <button type="button" class="btn btn-info">Go back to last page</button>
-  <button type="button" class="btn btn-danger">Delete this lesson</button>
+  <button type="button" class="btn btn-danger" ng-click="deleteLesson(lessonObject.data)">Delete this lesson</button>
 </div>
 
 </div>

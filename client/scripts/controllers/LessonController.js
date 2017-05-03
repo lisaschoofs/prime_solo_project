@@ -21,6 +21,7 @@ console.log('logging student object: ', $scope.studentObject);
 
 $scope.deleteLesson = function(lesson) {
   //DELETE to delete lesson from database
+  console.log('in deleteLesson');
   $http.delete('/lesson/' + lesson.id).then(function(response){
     console.log('back from the server with success!', response);
   });
@@ -69,9 +70,10 @@ $scope.assignLesson = function(lesson) {
     $location.path('/user');
     //sweetAlert creates success modal
     sweetAlert();
+
   });
-  //sends email to student
-  // $scope.sendEmail(lesson);
+  // sends email to student
+    // $scope.sendEmail(lesson);   
 };//ends assignLesson
 
 //   $scope.submitForm = function(info){
