@@ -65,13 +65,17 @@ myApp.controller('LessonController', ['$scope', '$http', '$location', 'UserServi
   $scope.assignLesson = function(lesson) {
     //POST saves lesson to database
     console.log('logging lesson.id in assignLesson: ', lesson.id);
+    $scope.sendEmail(lesson);
 
     $http.put('/lesson/' + lesson.id).then(function(response){
       console.log('back from the server with success!', response);
       $location.path('/user');
       //sweetAlert creates success modal
-      sweetAlert();
-
+      swal({
+        title: 'Success!',
+        text: 'Sweet, your lesson has been emailed!',
+        type: 'success',
+      });
     });
     // sends email to student
     // $scope.sendEmail(lesson);
