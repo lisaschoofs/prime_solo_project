@@ -11,8 +11,8 @@
             <th>Instrument</th>
             <th>Lesson Day</th>
         </tr>
-        <tr ng-repeat="student in studentList.students" ng-show="student.teacher == userObject.id">
-          <td ng-click="studentView(student)">{{ student.name }} </td>
+        <tr ng-repeat="student in studentList.students | orderBy: 'name'" ng-show="student.teacher == userObject.id">
+          <td ng-click="studentView(student)" >{{ student.name }} </td>
           <td ng-click="studentView(student)">{{ student.instrument }} </td>
           <td ng-click="studentView(student)">{{ student.day }} </td>
         </tr>

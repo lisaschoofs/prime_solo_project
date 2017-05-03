@@ -18,7 +18,7 @@
           <th>Date</th>
           <th>Description</th>
         </tr>
-        <tr ng-repeat="lesson in lessonList.lessons"
+        <tr ng-repeat="lesson in lessonList.lessons | orderBy: 'date'"
         ng-show="lesson.student == studentObject.data.id">
         <td ng-click=viewDetails(lesson)>{{ lesson.date }} </td>
         <td ng-click=viewDetails(lesson)>{{ lesson.description }} </td>
