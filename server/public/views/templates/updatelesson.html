@@ -3,18 +3,22 @@
   <div ng-include="'views/partials/nav.html'"></div>
   <h1> Lesson Details </h1>
   <h2>Student: {{studentObject.data.name}}</h2>
-  <div class=well>Date:  {{lessonObject.data.date}} </div>
-  <div class=well>Description: {{lessonObject.data.description}} </div>
-  <!-- Somehow display if lesson has been assigned or not. If/else logic to show email button. Or checkbox to email student? -->
-  <!-- ng-show="lessonObject.data.assigned = FALSE" -->
-  <button type="button" class="btn btn-success"
-          ng-click="assignLesson(lessonObject.data)">Email to Student</button>
-  <!-- <button type="button" class="btn btn-success" ng-show="lessonObject.data.assigned = TRUE" disabled>Student has been emailed</button> -->
-  <!-- <button type="button" class="btn btn-primary">Update Details</button> -->
-  <button type="button" class="btn btn-info" >Go back to last page</button>
-  <a href="#mystudent">Go Back to Student's Details</a>
-
-  <button type="button" class="btn btn-danger" ng-click="deleteLesson(lessonObject.data)">Delete this lesson</button>
-</div>
-
+  <div class="row">
+    <div class="col-xs-12">
+      <div class=well>Date:  {{lessonObject.data.date}} </div>
+      <div class=well>Description: {{lessonObject.data.description}} </div>
+      <!-- Somehow display if lesson has been assigned or not. If/else logic to show email button. Or checkbox to email student? -->
+      <!-- ng-show="lessonObject.data.assigned = FALSE" -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <button type="button" class="btn btn-success"
+      ng-click="assignLesson(lessonObject.data)">Email to Student</button>
+      <!-- <button type="button" class="btn btn-success" ng-show="lessonObject.data.assigned = TRUE" disabled>Student has been emailed</button> -->
+      <!-- <button type="button" class="btn btn-primary">Update Details</button> -->
+      <button type="button" class="btn btn-danger" ng-click="deleteLesson(lessonObject.data)">Delete this lesson</button>
+      <a href="#mystudent" class="btn btn-info">Go Back</a>
+    </div>
+  </div>
 </div>

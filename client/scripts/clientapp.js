@@ -66,3 +66,7 @@ myApp.config(['$routeProvider', '$locationProvider',
       redirectTo: 'login'
     });
 }]);
+
+// myApp.run(function(editableOptions) {
+//   editableOptions.theme = 'bs3';
+// });

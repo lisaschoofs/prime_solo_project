@@ -63,7 +63,14 @@ module.exports = function(grunt){
               'angular-route.min.js',
               'angular-route.min.js.map'],
         dest: 'server/public/vendors/angular-route/'
-      }
+      },
+      angularXeditable: {
+        expand: true,
+        cwd: 'node_modules/angular-xeditable/dist/',
+        src: ['css/xeditable.css',
+              'js/xeditable.js'],
+        dest: 'server/public/vendors/angular-xeditable/'
+      },
     },
     watch: {
       files: [
