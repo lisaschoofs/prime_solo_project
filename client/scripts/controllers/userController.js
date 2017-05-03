@@ -8,13 +8,21 @@ myApp.controller('UserController', ['$scope', '$http', '$location', 'UserService
   $scope.studentView = StudentService.studentView;
   $scope.addLesson = StudentService.addLesson;
 
-//controller specifc functions
+  //get all students from the database
+  $scope.getStudents();
+
+  $scope.orderByCategory = 'name';
+
+  $scope.changeOrderBy = function(category) {
+    $scope.orderByCategory = category;
+    console.log($scope.orderByCategory);
+  };
+
   $scope.newStudent = function() {
     $location.path('/newstudent');
   };
 
-  //get all students from the database
-  $scope.getStudents();
+
 
   // $scope.studentView();
 }]);
