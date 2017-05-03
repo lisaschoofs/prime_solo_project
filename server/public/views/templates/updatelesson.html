@@ -5,8 +5,24 @@
   <h2>Student: {{studentObject.data.name}}</h2>
   <div class="row">
     <div class="col-xs-12">
-      <div class=well>Date:  {{lessonObject.data.date}} </div>
-      <div class=well>Description: {{lessonObject.data.description}} </div>
+      <!-- <div class=well>Date:  {{lessonObject.data.date}} </div>
+      <div class=well>Description: {{lessonObject.data.description}} </div> -->
+
+      <div class=well>
+        <a href="#" editable-text="lessonObject.data.date" e-label="Date : ">
+            Date:  {{ lessonObject.data.date }}
+          </a>
+      </div>
+
+      <div class=well>
+        <a href="#" editable-text="lessonObject.data.description" e-label="Description  :">
+          Description: {{lessonObject.data.description }}
+        </a>
+      </div>
+
+      <!-- <div class=well>Description: {{lessonObject.data.description}} </div>
+      {{ user.name || 'empty' }}</a> -->
+
       <!-- Somehow display if lesson has been assigned or not. If/else logic to show email button. Or checkbox to email student? -->
       <!-- ng-show="lessonObject.data.assigned = FALSE" -->
     </div>
@@ -17,8 +33,7 @@
               ng-click="assignLesson(lessonObject.data)">Email to Student</button>
       <button type="button" class="btn btn-success" ng-show="lessonObject.data.assigned == true"
               disabled="disabled">Email to Student</button>
-      <!-- <button type="button" class="btn btn-success" ng-show="lessonObject.data.assigned = TRUE" disabled>Student has been emailed</button> -->
-      <!-- <button type="button" class="btn btn-primary">Update Details</button> -->
+      <button type="button" class="btn btn-primary">Update Lesson</button>
       <button type="button" class="btn btn-danger" ng-click="deleteLesson(lessonObject.data)">Delete this lesson</button>
       <!-- <a href="#mystudent" class="btn btn-info">Go Back</a> -->
       <a href="#mystudent">Go Back</a>

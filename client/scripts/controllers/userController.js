@@ -11,18 +11,16 @@ myApp.controller('UserController', ['$scope', '$http', '$location', 'UserService
   //get all students from the database
   $scope.getStudents();
 
+
   $scope.orderByCategory = 'name';
 
   $scope.changeOrderBy = function(category) {
     $scope.orderByCategory = category;
-    console.log($scope.orderByCategory);
   };
 
   $scope.newStudent = function() {
     $location.path('/newstudent');
   };
-
-
 
   // $scope.studentView();
 }]);

@@ -15,9 +15,12 @@ CREATE TABLE "students" (
   "teacher" varchar(120) not null
 );
 
+--create lessons table
 CREATE TABLE "lessons" (
   "id" serial primary key,
   "student" varchar(80) not null,
   "date" varchar(80) not null,
-  "description" varchar(1000) not null
+  "description" varchar(1000) not null,
+  "email" varchar(80) not null,
+  "assigned" boolean
 );
