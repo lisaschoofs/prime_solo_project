@@ -1,4 +1,5 @@
 myApp.factory('MailService', ['$http', function($http){
+
   return {
     sendEmail: function(info){
       console.log('Info in sendEmail function: ', info);
