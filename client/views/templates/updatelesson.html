@@ -1,7 +1,7 @@
 <header ng-include="'/views/partials/header.html'"></header>
 <div class="container">
   <div ng-include="'views/partials/nav.html'"></div>
-  <h1> Lesson Details UPDATE LESSON VIEW </h1>
+  <h1> Lesson Details </h1>
   <h2>Student: {{studentObject.data.name}}</h2>
   <div class=well>Date:  {{lessonObject.data.date}} </div>
   <div class=well>Description: {{lessonObject.data.description}} </div>
@@ -11,7 +11,9 @@
           ng-click="sendEmail(lessonObject.data)">Email to Student</button>
   <!-- <button type="button" class="btn btn-success" ng-show="lessonObject.data.assigned = TRUE" disabled>Student has been emailed</button> -->
   <button type="button" class="btn btn-primary">Update Details</button>
-  <button type="button" class="btn btn-info">Go back to last page</button>
+  <button type="button" class="btn btn-info" >Go back to last page</button>
+  <a href="#mystudent">Go Back to Student's Details</a>
+
   <button type="button" class="btn btn-danger" ng-click="deleteLesson(lessonObject.data)">Delete this lesson</button>
 </div>
 

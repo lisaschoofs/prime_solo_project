@@ -30,10 +30,9 @@ function getStudents() {
 
 
 function studentView(student) {
-  //need to update the studentObject with the data of the specifc student clicked within the studentList.
-  console.log('logging what is passed into studentView: ', student);
+  //sets studentObject.data equal to the student that was clicked.
   studentObject.data = student;
-  console.log('logging studentObject in studentView function', studentObject);
+  //changes view to go to specific student's details
   $location.path('/mystudent');
 }
 
@@ -55,11 +54,6 @@ function viewDetails(lesson) {
   lessonObject.data = lesson;
   console.log('logging lessonObject: ', lessonObject);
   $location.path('/updatelesson');
-//   swal(
-//   'Lesson Details for ' + lesson.date,
-//   lesson.description,
-//   'success'
-// );
 }
 
 return {
