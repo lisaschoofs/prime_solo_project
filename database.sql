@@ -12,7 +12,7 @@ CREATE TABLE "students" (
   "email" varchar(80) not null,
   "instrument" varchar(120) not null,
   "day" varchar(80) not null,
-  "teacher" varchar(120) not null
+  "teacher" integer
 );
 
 --create lessons table

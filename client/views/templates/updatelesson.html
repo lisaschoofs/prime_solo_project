@@ -4,7 +4,7 @@
   <h1> Lesson Details </h1>
   <h2>Student: {{studentObject.data.name}}</h2>
   <!-- plain view, no edit mode:  -->
-  <div class="row">
+  <div class="row" ng-if="editing.status === 'FALSE'">
     <div class="col-xs-12">
       <div class=well>Date:  {{lessonObject.data.date}} </div>
       <div class=well>Description: {{lessonObject.data.description}} </div>
@@ -13,7 +13,7 @@
 
 <!-- form for editing-->
 <!-- ng-if="editing"  -->
-  <div class="row">
+  <div class="row" ng-if="editing.status === 'TRUE'">
     <div class="col-lg-12">
       <form ng-submit="saveLesson(lesson)">
 
@@ -24,15 +24,15 @@
           </select>
         </div> -->
 
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="student">Student: </label>
           <input class="form-control" type="text" value={{studentObject.data.name}}>
-        </div>
+        </div> -->
 
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="date">Lesson Date</label>
           <input class="form-control" type="date" value={{lessonObject.data.date}}>
-        </div>
+        </div> -->
 
       <div class="form-group">
         <label for="description">Lesson Details: </label>
@@ -50,7 +50,7 @@
               ng-click="assignLesson(lessonObject.data)">Email to Student</button>
       <button type="button" class="btn btn-success" ng-show="lessonObject.data.assigned == true"
               disabled="disabled">Email to Student</button>
-      <button type="button" class="btn btn-primary">Update Lesson</button>
+      <button type="button" class="btn btn-primary" ng-click="changeEditing()">Update Lesson</button>
       <button type="button" class="btn btn-danger" ng-click="deleteLesson(lessonObject.data)">Delete this lesson</button>
       <!-- <a href="#mystudent" class="btn btn-info">Go Back</a> -->
       <a href="#mystudent">Go Back</a>

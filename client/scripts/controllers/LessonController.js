@@ -14,6 +14,12 @@ myApp.controller('LessonController', ['$scope', '$http', '$location', 'UserServi
   $scope.lessonObject = StudentService.lessonObject;
   $scope.viewDetails = StudentService.viewDetails;
 
+  $scope.editing = {status: 'FALSE'};
+  $scope.changeEditing = function() {
+    $scope.editing.status = 'TRUE';
+  };
+
+  console.log('logging userObject: ', $scope.userObject);
   console.log('logging student object: ', $scope.studentObject);
   //object for form to bind to.
 
@@ -25,7 +31,12 @@ myApp.controller('LessonController', ['$scope', '$http', '$location', 'UserServi
     $http.delete('/lesson/' + lesson.id).then(function(response){
       console.log('back from the server with success!', response);
     });
-
+    swal({
+      title: 'No prob, bob!',
+      text: 'Just like that, your lesson has been deleted.',
+      type: 'success',
+    });
+    $location.path('/user');
   };
 
   //Creates Lesson when form is submitted on addlesson.html form.

@@ -4,7 +4,7 @@ html {
 }
 
 main {
-  background-color: #F9F8F8
+  background-color: #F9F8F8;
 }
 
 .list {
@@ -15,6 +15,10 @@ main {
   padding: 90px;
   text-align: center;
 }
+
+/*.ng-scope {
+  background-color: #BFDBF7;
+}*/
 
 .login {
   padding: 25px;
