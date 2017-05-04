@@ -3,29 +3,47 @@
   <div ng-include="'views/partials/nav.html'"></div>
   <h1> Lesson Details </h1>
   <h2>Student: {{studentObject.data.name}}</h2>
+  <!-- plain view, no edit mode:  -->
   <div class="row">
     <div class="col-xs-12">
       <div class=well>Date:  {{lessonObject.data.date}} </div>
       <div class=well>Description: {{lessonObject.data.description}} </div>
-
-      <!-- <div class=well>
-        <a href="#" editable-text="lessonObject.data.date" e-label="Date : ">
-            Date:  {{ lessonObject.data.date }}
-          </a>
-      </div>
-
-      <div class=well>
-        <a href="#" editable-text="lessonObject.data.description" e-label="Description  :">
-          Description: {{lessonObject.data.description }}
-        </a>
-      </div> -->
-
-      <!-- <div class=well>Description: {{lessonObject.data.description}} </div>
-      {{ user.name || 'empty' }}</a> -->
-
-      <!-- ng-show="lessonObject.data.assigned = FALSE" -->
     </div>
   </div>
+
+<!-- form for editing-->
+<!-- ng-if="editing"  -->
+  <div class="row">
+    <div class="col-lg-12">
+      <form ng-submit="saveLesson(lesson)">
+
+        <!-- <div class="form-group">
+          <label for="studentDropdown">Student</label>
+          <select class="form-control" ng-model="lesson.student"
+                  ng-options="student.name for student in studentList.students | filter : student.teacher = userObject.id">
+          </select>
+        </div> -->
+
+        <div class="form-group">
+          <label for="student">Student: </label>
+          <input class="form-control" type="text" value={{studentObject.data.name}}>
+        </div>
+
+        <div class="form-group">
+          <label for="date">Lesson Date</label>
+          <input class="form-control" type="date" value={{lessonObject.data.date}}>
+        </div>
+
+      <div class="form-group">
+        <label for="description">Lesson Details: </label>
+        <input class="form-control" rows="3" value={{lessonObject.data.description}}></input>
+      </div>
+        <!-- <input class="btn btn-default" type="submit" name="lesson.submit" value="Assign Lesson"/> -->
+      </form>
+    </div>
+  </div>
+
+<!-- bottom of page buttons -->
   <div class="row">
     <div class="col-xs-12">
       <button type="button" class="btn btn-success" ng-show="lessonObject.data.assigned == false"
@@ -39,3 +57,5 @@
     </div>
   </div>
 </div>
+
+      <!-- ng-show="lessonObject.data.assigned = FALSE" -->
