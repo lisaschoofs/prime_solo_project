@@ -10,6 +10,7 @@ myApp.controller('StudentController', ['$scope', '$http', '$location', 'UserServ
     'Saturday',
     'Sunday'
   ];
+  
   $scope.logout = UserService.logout;
   $scope.student = {
     name: '',

@@ -7,6 +7,10 @@ main {
   background-color: #F9F8F8
 }
 
+.list {
+    cursor: pointer;
+}
+
 .top {
   padding: 90px;
   text-align: center;
