@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp', ['ngRoute', 'xeditable']);
+var myApp = angular.module('myApp', ['ngRoute']);
 
 /// Routes ///
 myApp.config(['$routeProvider', '$locationProvider',
@@ -66,7 +66,3 @@ myApp.config(['$routeProvider', '$locationProvider',
       redirectTo: 'login'
     });
 }]);
-
-// myApp.run(function(editableOptions) {
-//   editableOptions.theme = 'bs3';
-// });
