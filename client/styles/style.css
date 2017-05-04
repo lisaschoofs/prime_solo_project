@@ -16,6 +16,21 @@ main {
   text-align: center;
 }
 
+.landing {
+  position: relative;
+  text-align: center;
+  padding: 100px 15px 100px;
+  width: 100%;
+}
+
+.landing h1 {
+  font-weight: 700;
+  /*text-transform: uppercase;*/
+  /*margin-top: 0;
+  margin-bottom: 0;*/
+  font-size: 30px;
+  /*background-color: #4357AD;   */
+}
 /*.ng-scope {
   background-color: #BFDBF7;
 }*/
