@@ -13,6 +13,7 @@ var register = require('./routes/register');
 var student = require('./routes/student');
 var lesson = require('./routes/lesson');
 var nodemailer = require('./routes/nodemailer');
+var dotenv = require('dotenv').config();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
