@@ -1,16 +1,35 @@
 <header ng-include="'/views/partials/header.html'"></header>
 <div class="container">
   <!-- <div ng-include="'views/partials/nav.html'"></div> -->
-  <button class="btn btn-default" ng-click="logout()">Log Out</button>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-9">
       <h2>My Students</h2>
-      <p>sweet, sweet list of students to go here</p>
+      <table class="table table-hover list">
+        <tr>
+            <th ng-click="changeOrderBy('name')">Student</th>
+            <th ng-click="changeOrderBy('instrument')">Instrument</th>
+            <th ng-click="changeOrderBy('day')">Lesson Day</th>
+        </tr>
+        <tr ng-repeat="student in studentList.students | orderBy: orderByCategory" ng-show="student.teacher == userObject.id">
+          <td ng-click="studentView(student)" >{{ student.name }} </td>
+          <td ng-click="studentView(student)">{{ student.instrument }} </td>
+          <td ng-click="studentView(student)">{{ student.day }} </td>
+        </tr>
+      </table>
     </div>
-    <div class="col-md-6">
-      <button class="btn btn-default btn-lg" ng-click="newStudent()">Add A New Student</button>
+    <div class="col-md-3" id="mainbuttons">
+      <button class="btn btn-default" ng-click="logout()">Log Out</button>
       <br>
-      <button class="btn btn-default btn-lg" ng-click="addLesson()">Add A New Lesson</button>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <button class="btn btn-info btn-lg" ng-click="newStudent()">Add A New Student</button>
+      <br>
+      <br>
+      <br>
+      <button class="btn btn-info btn-lg" ng-click="addLesson()">Add A New Lesson</button>
     </div>
   </div>
 </div>

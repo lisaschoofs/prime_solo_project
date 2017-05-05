@@ -1,0 +1,34 @@
+<header ng-include="'/views/partials/header.html'"></header>
+<div class="container">
+  <div ng-include="'views/partials/nav.html'"></div>
+  <button class="btn btn-default" ng-click="logout()">Log Out</button>
+  <div class="row">
+    <div class="col-md-12">
+      <h2>{{studentObject.data.name}}</h2>
+      <h3>Lesson Day: {{studentObject.data.day}} </h3>
+      <p>Instrument: {{  studentObject.data.instrument  }}</p>
+      <button class="btn btn-default btn-lg" ng-click="addLesson()">Add A New Lesson</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Check out this student's lessons!</h2>
+      <table class="table table-hover">
+        <tr>
+          <th>Date</th>
+          <th>Description</th>
+          <th>Assigned?</th>
+        </tr>
+        <tr class="list" ng-repeat="lesson in lessonList.lessons | orderBy: 'date'"
+            ng-show="lesson.student == studentObject.data.id">
+            <td ng-click=viewDetails(lesson)>{{ lesson.date }} </td>
+            <td ng-click=viewDetails(lesson)>{{ lesson.description }} </td>
+        <!-- <td><button class="btn btn-danger"
+          ng-click="deleteLesson(lesson)">delete</button></td> -->
+            <td ng-show="lesson.assigned == true"><span class='glyphicon glyphicon-star'></span></td>
+            <td ng-show="lesson.assigned == false"><span class='glyphicon glyphicon-star-empty'></span></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

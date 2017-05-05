@@ -1,13 +1,13 @@
 var myApp = angular.module('myApp', ['ngRoute']);
-
+// , 'ui.bootstrap'
 /// Routes ///
 myApp.config(['$routeProvider', '$locationProvider',
       function($routeProvider, $locationProvider) {
   $locationProvider.hashPrefix('');
 
   $routeProvider
-    .when('/home', {
-      templateUrl: '/views/templates/home.html',
+    .when('/login', {
+      templateUrl: '/views/templates/login.html',
       controller: 'LoginController',
       // controllerAs: 'login'
     })
@@ -20,16 +20,6 @@ myApp.config(['$routeProvider', '$locationProvider',
       templateUrl: '/views/templates/user.html',
       controller: 'UserController',
       // controllerAs: 'user',
-      resolve: {
-        getuser : ['UserService', function(UserService){
-          return UserService.getuser();
-        }]
-      }
-    })
-    .when('/info', {
-      templateUrl: '/views/templates/info.html',
-      controller: 'InfoController',
-      // controllerAs: 'info',
       resolve: {
         getuser : ['UserService', function(UserService){
           return UserService.getuser();
@@ -54,7 +44,25 @@ myApp.config(['$routeProvider', '$locationProvider',
         }]
       }
     })
+    .when('/updatelesson', {
+      templateUrl: '/views/templates/updatelesson.html',
+      controller: 'LessonController',
+      resolve: {
+        getuser : ['UserService', function(UserService){
+          return UserService.getuser();
+        }]
+      }
+    })
+    .when('/mystudent', {
+      templateUrl: '/views/templates/mystudent.html',
+      controller: 'LessonController',
+      resolve: {
+        getuser : ['UserService', function(UserService){
+          return UserService.getuser();
+        }]
+      }
+    })
     .otherwise({
-      redirectTo: 'home'
+      redirectTo: 'login'
     });
 }]);

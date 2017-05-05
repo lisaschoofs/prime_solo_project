@@ -8,13 +8,16 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
 
     getuser : function(){
       $http.get('/user').then(function(response) {
+        // console.log('logging response.data in get user: ', response.data);
           if(response.data.username) {
               // user has a curret session on the server
+              userObject.id = response.data.id;
               userObject.userName = response.data.username;
-              console.log('User Data: ', userObject.userName);
+              userObject.name = response.data.name;
+              console.log('User userName, id, and name: ', userObject.userName, userObject.id, userObject.name);
           } else {
               // user has no session, bounce them back to the login page
-              $location.path('/home');
+              $location.path('/login');
           }
       });
     },
@@ -22,7 +25,7 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
     logout : function() {
         $http.get('/user/logout').then(function(response) {
           console.log('logged out');
-          $location.path('/home');
+          $location.path('/login');
         });
     }
   };
