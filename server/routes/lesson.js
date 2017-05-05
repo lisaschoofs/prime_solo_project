@@ -4,12 +4,13 @@ var path = require('path');
 var pg = require('pg');
 
 var config = {
-  user: 'lisaschoofs', //env var: PGUSER
-  database: 'musicnotes', //env var: PGDATABASE
-  password: '', //env var: PGPASSWORD
-  port: 5432, //env var: PGPORT
+  user: (process.env.PGUSER || 'lisaschoofs'), //env var: PGUSER
+  database: (process.env.PGDATABASE || 'musicnotes'), //env var: PGDATABASE
+  password: (process.env.PGPASSWORD || ''), //env var: PGPASSWORD
+  port: (process.env.PGPORT || 5000), //env var: PGPORT
+  host: (process.env.PGHOST || 'localhost'),
   max: 10, // max number of clients in the pool
-  idleTimeoutMillis: 1500, // 1.5s // how long a client is allowed to remain idle before being closed
+  idleTimeoutMillis: 30000, // 1.5s // how long a client is allowed to remain idle before being closed
 };
 
 var pool = new pg.Pool(config);

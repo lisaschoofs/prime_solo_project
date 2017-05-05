@@ -8,6 +8,18 @@ var encryptLib = require('../modules/encryption');
 var connection = require('../modules/connection');
 var pg = require('pg');
 
+var config = {
+  user: (process.env.PGUSER || 'lisaschoofs'), //env var: PGUSER
+  database: (process.env.PGDATABASE || 'musicnotes'), //env var: PGDATABASE
+  password: (process.env.PGPASSWORD || ''), //env var: PGPASSWORD
+  port: (process.env.PGPORT || 5000), //env var: PGPORT
+  host: (process.env.PGHOST || 'localhost'),
+  max: 10, // max number of clients in the pool
+  idleTimeoutMillis: 30000, // 1.5s // how long a client is allowed to remain idle before being closed
+};
+
+var pool = new pg.Pool(config);
+
 // Handles request for HTML file
 router.get('/', function(req, res, next) {
     res.sendFile(path.resolve(__dirname, '../public/views/register.html'));
@@ -23,7 +35,7 @@ router.post('/', function(req, res, next) {
   };
   console.log('new user:', saveUser);
 
-  pg.connect(connection, function(err, client, done) {
+  pool.connect(function(err, client, done) {
     if(err) {
       console.log('Error connecting: ', err);
       next(err);

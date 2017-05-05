@@ -4,21 +4,20 @@ var encryptLib = require('../modules/encryption');
 var connection = require('../modules/connection');
 var pg = require('pg');
 
-//@TODO update pool config for Heroku deployment
-
 var config = {
-  user: (process.env.DATABASE_URL || 'lisaschoofs'), //env var: PGUSER
-  database: (process.env.DATABASE_URL || 'musicnotes'), //env var: PGDATABASE
+  user: (process.env.PGUSER || 'lisaschoofs'), //env var: PGUSER
+  database: (process.env.PGDATABASE || 'musicnotes'), //env var: PGDATABASE
   password: (process.env.PGPASSWORD || ''), //env var: PGPASSWORD
   port: (process.env.PGPORT || 5000), //env var: PGPORT
   max: 10, // max number of clients in the pool
-  idleTimeoutMillis: 1500, // 1.5s // how long a client is allowed to remain idle before being closed
+  idleTimeoutMillis: 30000, // 1.5s // how long a client is allowed to remain idle before being closed
 };
 
 //this initializes a connection pool
 //it will keep idle connections open for a 30 seconds
 //and set a limit of maximum 10 idle clients
 var pool = new pg.Pool(config);
+
 console.log('clients connected: ', connectCount);
 
 var acquireCount = 0;
