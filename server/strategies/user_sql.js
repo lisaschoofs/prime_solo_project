@@ -1,22 +1,7 @@
 var passport = require('passport');
 var localStrategy = require('passport-local').Strategy;
 var encryptLib = require('../modules/encryption');
-var connection = require('../modules/connection');
-var pg = require('pg');
-
-var config = {
-  user: (process.env.PGUSER || 'lisaschoofs'), //env var: PGUSER
-  database: (process.env.PGDATABASE || 'musicnotes'), //env var: PGDATABASE
-  password: (process.env.PGPASSWORD || ''), //env var: PGPASSWORD
-  port: (process.env.PGPORT || 5000), //env var: PGPORT
-  max: 10, // max number of clients in the pool
-  idleTimeoutMillis: 30000, // 1.5s // how long a client is allowed to remain idle before being closed
-};
-
-//this initializes a connection pool
-//it will keep idle connections open for a 30 seconds
-//and set a limit of maximum 10 idle clients
-var pool = new pg.Pool(config);
+var pool = require('../modules/pool');
 
 console.log('clients connected: ', connectCount);
 

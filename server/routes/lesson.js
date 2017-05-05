@@ -1,20 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
-var pg = require('pg');
-
-var config = {
-  user: (process.env.PGUSER || 'lisaschoofs'), //env var: PGUSER
-  database: (process.env.PGDATABASE || 'musicnotes'), //env var: PGDATABASE
-  password: (process.env.PGPASSWORD || ''), //env var: PGPASSWORD
-  port: (process.env.PGPORT || 5000), //env var: PGPORT
-  host: (process.env.PGHOST || 'localhost'),
-  max: 10, // max number of clients in the pool
-  idleTimeoutMillis: 30000, // 1.5s // how long a client is allowed to remain idle before being closed
-};
-
-var pool = new pg.Pool(config);
-
+var pool = require('../modules/pool');
 //Gets all lessons from database
 router.get('/', function(req, res) {
 
