@@ -10,10 +10,10 @@ This project was built over the course of two weeks as a part of my coursework a
 
 1. Download zip file of project.
 2. In terminal:
-⋅⋅*Run 'npm install'
-⋅⋅*Run 'grunt'
-⋅⋅*Run 'npm start'
-3. Open up your browser and open on localhost:5000.
+  * Run 'npm install'
+  * Run 'grunt'
+  * Run 'npm start'
+3. Open up your browser and connect to localhost:5000.
 
 ## Technologies Used In this project:
 - AngularJS
