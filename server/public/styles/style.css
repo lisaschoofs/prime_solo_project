@@ -44,6 +44,9 @@ main {
   background-color: #BFDBF7;
 }*/
 
+#studentinfo {
+  text-align: center;
+}
 .login {
   padding: 25px;
   text-align: center;

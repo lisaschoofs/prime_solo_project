@@ -3,15 +3,7 @@
   <div ng-include="'views/partials/nav.html'"></div>
   <button class="btn btn-default" ng-click="logout()">Log Out</button>
   <div class="row">
-    <div class="col-md-12">
-      <h2>{{studentObject.data.name}}</h2>
-      <h3>Lesson Day: {{studentObject.data.day}} </h3>
-      <p>Instrument: {{  studentObject.data.instrument  }}</p>
-      <button class="btn btn-default btn-lg" ng-click="addLesson()">Add A New Lesson</button>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-7">
       <h2>Check out this student's lessons!</h2>
       <table class="table table-hover">
         <tr>
@@ -30,5 +22,17 @@
         </tr>
       </table>
     </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-3" id="studentinfo">
+      <h2>{{studentObject.data.name}}</h2>
+      <h3>Lesson Day: {{studentObject.data.day}} </h3>
+      <p>Instrument: {{  studentObject.data.instrument  }}</p>
+      <button class="btn btn-default btn-lg" ng-click="addLesson()">Add A New Lesson</button>
+    </div>
+
+
+  <!-- </div> -->
+  <div class="row">
+
   </div>
 </div>
