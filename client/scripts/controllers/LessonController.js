@@ -1,5 +1,5 @@
 myApp.controller('LessonController', ['$scope', '$http', '$location', 'UserService', 'StudentService', 'MailService', function($scope, $http, $location, UserService, StudentService, MailService) {
-  // console.log('in LessonController');
+
   $scope.getStudents = StudentService.getStudents;
   $scope.getStudents();
   $scope.userObject = UserService.userObject;

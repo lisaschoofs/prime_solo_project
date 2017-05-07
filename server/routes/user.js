@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var pool = require('../modules/pool');
+
 // Handles Ajax request for user information if user is authenticated
 router.get('/', function(req, res) {
     // check if logged in

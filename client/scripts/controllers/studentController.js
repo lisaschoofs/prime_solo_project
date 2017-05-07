@@ -1,6 +1,7 @@
 myApp.controller('StudentController', ['$scope', '$http', '$location', 'UserService', function($scope, $http, $location, UserService) {
 
   $scope.userObject = UserService.userObject;
+
   $scope.daysArray = [
     'Monday',
     'Tuesday',
@@ -10,7 +11,7 @@ myApp.controller('StudentController', ['$scope', '$http', '$location', 'UserServ
     'Saturday',
     'Sunday'
   ];
-  
+
   $scope.logout = UserService.logout;
   $scope.student = {
     name: '',

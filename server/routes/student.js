@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var path = require('path');
 var pool = require('../modules/pool');
+
 //base get for all students from students table in the DB
 router.get('/', function(req, res) {
 
@@ -54,7 +55,5 @@ router.post('/', function(req, res) {
     } //ends else
   }); //ends pool.connect
 }); //ends router
-
-
 
 module.exports = router;

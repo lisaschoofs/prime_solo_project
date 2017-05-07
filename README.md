@@ -9,6 +9,7 @@ This project was built over the course of two weeks as a part of my coursework a
 ## To run the application on local host, follow these steps:
 
 1. Download zip file of project.
+DATABASE SET UP
 2. In terminal:
   * Run 'npm install'
   * Run 'grunt'
