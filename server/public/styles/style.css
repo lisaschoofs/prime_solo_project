@@ -3,12 +3,22 @@ html {
   font-family: 'Roboto', sans-serif;
 }
 
+/*body {
+  background-image: url("https://static.pexels.com/photos/69728/pexels-photo-69728.jpeg");
+}*/
+
+#studentList {
+  height: 70%;
+  overflow: auto;
+  font-size: 18px;
+}
+
 main {
   background-color: #F9F8F8;
 }
 
 .list {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .top {
@@ -32,6 +42,11 @@ main {
   /*background-color: #4357AD;   */
 }
 
+/*.studentList {
+    height: 70%;
+    overflow: scroll;
+}​*/
+
 .landing p {
   color: #2A324B;
 }
@@ -47,6 +62,7 @@ main {
 #studentinfo {
   text-align: center;
 }
+
 .login {
   padding: 25px;
   text-align: center;
@@ -55,6 +71,14 @@ main {
   border-width: 1px;*/
   border-color: #4357AD;
 }
+
+/*#master {
+  height: 60%;
+  width: 60%;
+  border-style: solid;
+  text-align: center;
+  background-color: #F9F8F8;
+}*/
 
 .instructions .container h1 {
     font-size: 24px;

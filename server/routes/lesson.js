@@ -55,7 +55,7 @@ router.post('/', function(req, res) {
 }); //ends router
 
 //Update lesson property of 'assigned' to TRUE once email has been sent to student.
-router.put('/:id', function(req, res){
+router.put('/assign/:id', function(req, res){
   console.log('logging req.body in router.put: ', req.body);
   console.log('req params in put: ', req.params);
   var lessonId= req.params.id;

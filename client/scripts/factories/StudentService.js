@@ -1,6 +1,6 @@
 myApp.factory('StudentService',['$http', '$location', function($http, $location){
 
-//all student from database
+//all students from database
 var studentList = {
   students: []
 };
@@ -28,7 +28,7 @@ function getStudents() {
 }); //end httpget
 }// end getStudents
 
-
+//move to 'mystudent' view
 function studentView(student) {
   //sets studentObject.data equal to the student that was clicked.
   studentObject.data = student;
@@ -36,23 +36,22 @@ function studentView(student) {
   $location.path('/mystudent');
 }
 
+//gets all lessons from the database
 function getLessons() {
   $http.get('/lesson').then(function(response){
     lessonList.lessons = response.data;
-  // console.log('response.data in getLessons: ', response.data);
-  // console.log('lessonList in getLessons: ', lessonList);
-  // console.log(lesson.student);
-}); //end httpget
+  });
 }
 
+//move to 'addlesson' view
 function addLesson() {
   $location.path('/addlesson');
 }
 
+//move to 'updatelesson' view
 function viewDetails(lesson) {
-  console.log('inside viewDetails function: ', lesson);
+  //save the data of the lesson that was clicked
   lessonObject.data = lesson;
-  console.log('logging lessonObject: ', lessonObject);
   $location.path('/updatelesson');
 }
 

@@ -11,16 +11,17 @@ myApp.controller('UserController', ['$scope', '$http', '$location', 'UserService
   //get all students from the database
   $scope.getStudents();
 
-
+  //sort on page load set to sort by student first name
   $scope.orderByCategory = 'name';
 
+  //changes orderBy category to whatever was clicked on view.
   $scope.changeOrderBy = function(category) {
     $scope.orderByCategory = category;
   };
 
+  //move to 'newstudent' view
   $scope.newStudent = function() {
     $location.path('/newstudent');
   };
-
-  // $scope.studentView();
+  
 }]);
