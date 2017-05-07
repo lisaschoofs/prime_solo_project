@@ -2,40 +2,33 @@
 <div class="container">
   <div ng-include="'views/partials/nav.html'"></div>
   <h1> Lesson Details </h1>
-  <h2>Student: {{studentObject.data.name}}</h2>
+
   <!-- plain view, no edit mode:  -->
   <div class="row" ng-if="editing.status === 'FALSE'">
     <div class="col-xs-12">
-      <div class=well> Date:  {{lessonObject.data.date}} </div>
-      <div class=well> Description: {{lessonObject.data.description}} </div>
+      <div class="well"> Student: {{studentObject.data.name}}</div>
+      <div class="well"> Date:  {{lessonObject.data.date}} </div>
+      <div class="well"> Description: {{lessonObject.data.description}} </div>
     </div>
   </div>
 
 <!-- form for editing-->
-<!-- ng-if="editing"  -->
-  <div class="row" ng-if="editing.status === 'TRUE'">
-    <div class="col-lg-12">
-      <div class=well> Date:  {{lessonObject.data.date}} </div>
-      <form ng-submit="saveLesson(lesson)">
-
-        <!-- <div class="form-group">
-          <label for="student">Student: </label>
-          <input class="form-control" type="text" value={{studentObject.data.name}}>
-        </div> -->
-
-        <!-- <div class="form-group">
-          <label for="date">Lesson Date</label>
-          <input class="form-control" type="date" value={{lessonObject.data.date}}>
-        </div> -->
-
+<div class="row" ng-if="editing.status === 'TRUE'">
+  <div class="col-lg-12">
+    <div class="well"> Student: {{studentObject.data.name}}</div>
+    <form ng-submit="updateLesson(lesson)">
+      <div class="form-group">
+        <label for="date">Lesson Date</label>
+        <input class="form-control" type="date" ng-model="lesson.date">{{lessonObject.data.date}}</input>
+      </div>
       <div class="form-group">
         <label for="description">Lesson Details: </label>
-        <input class="form-control" rows="3" value={{lessonObject.data.description}}></input>
+        <input class="form-control" rows="3" ng-model="lesson.description">{{lessonObject.data.description}}</input>
       </div>
-        <!-- <input class="btn btn-default" type="submit" name="lesson.submit" value="Assign Lesson"/> -->
-      </form>
-    </div>
+      <input class="btn btn-default" type="submit" name="lesson.submit" value="Save Updated Lesson"/>
+    </form>
   </div>
+</div>
 
 <!-- bottom of page buttons -->
   <div class="row">
@@ -44,7 +37,7 @@
               ng-click="assignLesson(lessonObject.data)">Email to Student</button>
       <button type="button" class="btn btn-success" ng-show="lessonObject.data.assigned == true"
               disabled="disabled">Email to Student</button>
-      <button type="button" class="btn btn-primary" ng-click="changeEditing()">Update Lesson</button>
+      <button type="button" class="btn btn-primary" ng-click="changeEditing()">Edit Lesson Details</button>
       <button type="button" class="btn btn-danger" ng-click="deleteLesson(lessonObject.data)">Delete this lesson</button>
       <!-- <a href="#mystudent" class="btn btn-info">Go Back</a> -->
       <a href="#mystudent">Go Back</a>
