@@ -14,10 +14,11 @@ myApp.controller('LessonController', ['$scope', '$http', '$location', 'UserServi
   $scope.lessonObject = StudentService.lessonObject;
   $scope.viewDetails = StudentService.viewDetails;
   $scope.sweetAlertModal = AlertService.sweetAlertModal;
+
   //object for form to bind to.
   $scope.lesson = {};
-  $scope.editing = {status: 'FALSE'};
 
+  $scope.editing = {status: 'FALSE'};
   $scope.changeEditing = function() {
     $scope.editing.status = 'TRUE';
     $scope.lesson.id = $scope.lessonObject.data.id;
@@ -30,11 +31,8 @@ myApp.controller('LessonController', ['$scope', '$http', '$location', 'UserServi
   console.log('logging userObject: ', $scope.userObject);
   console.log('logging student object: ', $scope.studentObject);
 
-
   //Deletes lesson from database, initiates location move and modal
   $scope.deleteLesson = function(lesson) {
-    //DELETE to delete lesson from database
-    console.log('in deleteLesson');
     $http.delete('/lesson/' + lesson.id).then(function(response){
       console.log('back from the server with success!', response);
     });
@@ -62,7 +60,6 @@ myApp.controller('LessonController', ['$scope', '$http', '$location', 'UserServi
   $scope.assignLesson = function(lesson) {
     $scope.sendEmail(lesson);
     $http.put('/lesson/assign/' + lesson.id).then(function(response){
-      console.log('back from the server with success!', response);
       $location.path('/user');
       $scope.sweetAlertModal('Success!', 'Sweet, your lesson has been emailed!');
     });
@@ -73,20 +70,11 @@ myApp.controller('LessonController', ['$scope', '$http', '$location', 'UserServi
 
 //Updates lesson details from 'updatelesson' edit mode
   $scope.updateLesson = function(lesson) {
-    //POST saves lesson to database
-    console.log('logging lesson.id in assignLesson: ', lesson.id);
-
-    // $http.put('/lesson/' + lesson.id).then(function(response){
-    //   console.log('back from the server with success!', response);
-    //   $location.path('/user');
-    //   //sweetAlert creates success modal
-    //   swal({
-    //     title: 'Success!',
-    //     text: 'Sweet, your lesson details have been updated!',
-    //     type: 'success',
-    //   });
-    // });
-
-  };//ends assignLesson
+    lesson.date = moment(lesson.date).calendar('days');
+    $http.put('/lesson/update/' + lesson.id, lesson).then(function(response){
+      $location.path('/user');
+      $scope.sweetAlertModal('Success!', 'Awesome, your lesson has been updated!');
+    });
+  };//ends updateLesson
 
 }]);

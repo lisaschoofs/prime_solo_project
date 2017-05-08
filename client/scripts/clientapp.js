@@ -1,6 +1,6 @@
 var myApp = angular.module('myApp', ['ngRoute']);
 // , 'ui.bootstrap'
-/// Routes ///
+
 myApp.config(['$routeProvider', '$locationProvider',
       function($routeProvider, $locationProvider) {
   $locationProvider.hashPrefix('');
@@ -9,17 +9,14 @@ myApp.config(['$routeProvider', '$locationProvider',
     .when('/login', {
       templateUrl: '/views/templates/login.html',
       controller: 'LoginController',
-      // controllerAs: 'login'
     })
     .when('/register', {
       templateUrl: '/views/templates/register.html',
       controller: 'LoginController',
-      // controllerAs: 'login'
     })
     .when('/user', {
       templateUrl: '/views/templates/user.html',
       controller: 'UserController',
-      // controllerAs: 'user',
       resolve: {
         getuser : ['UserService', function(UserService){
           return UserService.getuser();

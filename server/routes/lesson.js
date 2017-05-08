@@ -81,32 +81,32 @@ router.put('/assign/:id', function(req, res){
   }); //ends pool.connect
 }); //ends router
 
-//Update lesson details in edit mode.
-// router.put('/:id', function(req, res){
-//   console.log('logging req.body in router.put: ', req.body);
-//   console.log('req params in put: ', req.params);
-//   var lessonId= req.params.id;
-//   console.log('logging lessonId in put: ', lessonId);
-//
-//   pool.connect(function(errorConnectingToDatabase, db, done){
-//     if(errorConnectingToDatabase) {
-//       console.log('Error connecting to the database.');
-//       res.send(500);
-//     } else {
-//       //NEED TO UPDATE QUERY for lesson update
-//       db.query("UPDATE lessons SET assigned = 'TRUE' WHERE id =" + lessonId, function(queryError, result){
-//         done();
-//         if(queryError) {
-//           console.log('Error making query.');
-//           res.sendStatus(500);
-//         } else {
-//           console.log(result);
-//           res.sendStatus(201);
-//         } //ends else
-//       }); //ends db query
-//     } //ends else
-//   }); //ends pool.connect
-// }); //ends router
+// Update lesson details in edit mode.
+router.put('/update/:id', function(req, res){
+  console.log('logging req.body in router.put: ', req.body);
+  console.log('req params in put: ', req.params);
+  var lessonId= req.params.id;
+
+  pool.connect(function(errorConnectingToDatabase, db, done){
+    if(errorConnectingToDatabase) {
+      console.log('Error connecting to the database.');
+      res.send(500);
+    } else {
+      // db.query("UPDATE lessons SET assigned = 'FALSE', description =" + req.body.description + ", date =" + req.body.date + " WHERE id =" + lessonId, function(queryError, result){
+      db.query("UPDATE lessons SET assigned = 'FALSE', description =$1, date =$2 WHERE id =" + lessonId, [req.body.description, req.body.date], function(queryError, result){
+
+        done();
+        if(queryError) {
+          console.log('Error making query.');
+          res.sendStatus(500);
+        } else {
+          console.log(result);
+          res.sendStatus(201);
+        } //ends else
+      }); //ends db query
+    } //ends else
+  }); //ends pool.connect
+}); //ends router
 
 //Deletes lesson from the database by targeting ID
 router.delete('/:id', function(req, res){

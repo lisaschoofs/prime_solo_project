@@ -3,9 +3,9 @@ html {
   font-family: 'Roboto', sans-serif;
 }
 
-/*body {
-  background-image: url("https://static.pexels.com/photos/69728/pexels-photo-69728.jpeg");
-}*/
+body {
+  background-image: url("violin.jpeg");
+}
 
 #studentList {
   height: 70%;
@@ -51,10 +51,6 @@ main {
   color: #2A324B;
 }
 
-.container-fluid {
-  /*background-color: #BFDBF7;*/
-}
-
 /*.ng-scope {
   background-color: #BFDBF7;
 }*/
@@ -66,19 +62,18 @@ main {
 .login {
   padding: 25px;
   text-align: center;
-  /*border-style: solid;
+  border-style: solid;
   border-radius: 5px;
-  border-width: 1px;*/
+  border-width: 1px;
   border-color: #4357AD;
 }
 
-/*#master {
-  height: 60%;
-  width: 60%;
+#master {
   border-style: solid;
   text-align: center;
-  background-color: #F9F8F8;
-}*/
+  background-color: #4357AD;
+  color: #48A9A6;
+}
 
 .instructions .container h1 {
     font-size: 24px;
@@ -101,6 +96,12 @@ main {
 
 #container {
     margin-top: 10px;
+}
+
+#nav {
+  height: 50px;
+  background-color: #767B91;
+  color: #F9F8F8;
 }
 
 .container p{
