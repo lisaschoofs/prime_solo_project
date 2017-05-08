@@ -13,26 +13,24 @@
         </tr>
         <tr class="list" ng-repeat="lesson in lessonList.lessons | orderBy: 'date'"
             ng-show="lesson.student == studentObject.data.id">
-            <td ng-click=viewDetails(lesson)>{{ lesson.date }} </td>
-            <td ng-click=viewDetails(lesson)>{{ lesson.description }} </td>
-        <!-- <td><button class="btn btn-danger"
-          ng-click="deleteLesson(lesson)">delete</button></td> -->
-            <td ng-show="lesson.assigned == true"><span class='glyphicon glyphicon-ok'></span></td>
-            <td ng-show="lesson.assigned == false"><span></span></td>
-        </tr>
-      </table>
-    </div>
-    <div class="col-md-1"><span></span></div>
-    <div class="col-md-4 well" id="studentinfo">
-      <h2>{{studentObject.data.name}}</h2>
-      <h3>Lesson Day: {{studentObject.data.day}} </h3>
-      <p>Instrument: {{studentObject.data.instrument}}</p>
-      <button class="btn btn-default btn-lg" ng-click="addLesson()">Add A New Lesson</button>
-    </div>
-
-
+        <td ng-click=viewDetails(lesson)>{{ lesson.date }} </td>
+        <td ng-click=viewDetails(lesson)>{{ lesson.description }} </td>
+        <td ng-show="lesson.assigned == true"><span class='glyphicon glyphicon-ok'></span></td>
+        <td ng-show="lesson.assigned == false"><span></span></td>
+      </tr>
+    </table>
   </div>
-  <div class="row">
-
+  <div class="col-md-1"><span></span></div>
+  <div class="col-md-4 well" id="studentinfo">
+    <h2>{{studentObject.data.name}}</h2>
+    <h3>Lesson Day: {{studentObject.data.day}} </h3>
+    <p>Instrument: {{studentObject.data.instrument}}</p>
+    <button class="btn btn-default btn-lg" ng-click="addLesson()">Add A New Lesson</button>
   </div>
+
+
+</div>
+<div class="row">
+
+</div>
 </div>

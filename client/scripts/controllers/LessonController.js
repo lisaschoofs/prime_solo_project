@@ -47,6 +47,7 @@ myApp.controller('LessonController', ['$scope', '$http', '$location', 'UserServi
     //reformats date before it's sent to the database
     lesson.date = moment(lesson.date).calendar('days');
     $http.post('/lesson', lesson).then(function(response){
+      console.log(response);
       $location.path('/user');
     });
     if (lesson.notify) {
@@ -76,7 +77,7 @@ myApp.controller('LessonController', ['$scope', '$http', '$location', 'UserServi
   $scope.updateLesson = function(lesson) {
     lesson.date = moment(lesson.date).calendar('days');
     $http.put('/lesson/update/' + lesson.id, lesson).then(function(response){
-      $location.path('/user');
+      $location.path('/mystudent');
       $scope.sweetAlertModal('Success!', 'Awesome, your lesson has been updated!');
     });
   };//ends updateLesson
