@@ -7,6 +7,10 @@ body {
   background-image: url("violin.jpeg");
 }
 
+.addform {
+  padding-bottom: 10px;
+
+}
 #studentList {
   height: 70%;
   overflow: auto;

@@ -2,7 +2,7 @@
 <div class="container">
   <div ng-include="'views/partials/nav.html'"></div>
   <h1> Add a New Lesson </h1>
-  <div class="row">
+  <div class="row addform">
     <div class="col-lg-12">
       <form ng-submit="saveLesson(lesson)">
 
@@ -26,9 +26,10 @@
       <div class="form-check">
         <label class="email">
           <input class="form-check-input" type="checkbox" ng-model="lesson.notify" value="">
-          Email Student 
+          Email Student?
         </label>
       </div>
+      <br>
 
       <input class="btn btn-info" type="submit" name="lesson.submit" value="Add Lesson"/>
       <a href="#user">Cancel</a>
