@@ -28,8 +28,8 @@ myApp.controller('LessonController', ['$scope', '$http', '$location', 'UserServi
     $scope.lesson.student = $scope.lessonObject.data.student;
   };
 
-  console.log('logging userObject: ', $scope.userObject);
-  console.log('logging student object: ', $scope.studentObject);
+  // console.log('logging userObject: ', $scope.userObject);
+  // console.log('logging student object: ', $scope.studentObject);
 
   //Deletes lesson from database, initiates location move and modal
   $scope.deleteLesson = function(lesson) {
@@ -42,16 +42,20 @@ myApp.controller('LessonController', ['$scope', '$http', '$location', 'UserServi
 
   //Creates Lesson when form is submitted on addlesson.html form.
   $scope.saveLesson = function(lesson) {
+    console.log('logging lesson in save lesson: ', lesson);
     $scope.lesson = lesson;
     //reformats date before it's sent to the database
     lesson.date = moment(lesson.date).calendar('days');
     $http.post('/lesson', lesson).then(function(response){
       $location.path('/user');
-      // sweetAlert creates success modal
-      $scope.sweetAlertModal('Success!', 'Sweet, your lesson has been added!', 'success');
     });
-    //function that sends email to student with lesson information
-    // $scope.sendEmail(lesson);
+    if (lesson.notify) {
+      $scope.sendEmail(lesson);
+      $scope.sweetAlertModal('Success!', 'Sweet, your lesson has been added & ' +
+                              'your student has been emailed!', 'success');
+    } else {
+      $scope.sweetAlertModal('Success!', 'Sweet, your lesson has been added!', 'success');
+    }
   }; //ends saveLesson function
 
   $scope.getLessons();
