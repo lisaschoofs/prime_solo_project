@@ -1,6 +1,7 @@
 # Prime Solo Project : Music Notes, a Full-Stack Web Application
 
 [Check out Music Notes online!](https://musicnotesapp.herokuapp.com/)
+For a demo with pre-loaded data, login with these credentials: email: lisaschoofs@gmail.com, password: lisa
 
 Music Notes is a full-stack web application that enables music teachers to better organize their lesson history and communicate with their students. It takes what is typically accomplished in a disorganized paper process and streamlines it into a digital organization tool.
 

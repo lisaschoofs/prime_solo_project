@@ -17,6 +17,10 @@ body {
   font-size: 18px;
 }
 
+#demo {
+  color: red;
+  font-style: italic;
+}
 main {
   background-color: #F9F8F8;
 }
@@ -43,7 +47,7 @@ main {
   font-size: 75px;
   color: #48A9A6;
   padding-bottom: 10px;
-  padding-top: 10px;  
+  padding-top: 10px;
 }
 
 .landing h1 {
