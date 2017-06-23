@@ -28,9 +28,6 @@ myApp.controller('LessonController', ['$scope', '$http', '$location', 'UserServi
     $scope.lesson.student = $scope.lessonObject.data.student;
   };
 
-  // console.log('logging userObject: ', $scope.userObject);
-  // console.log('logging student object: ', $scope.studentObject);
-
   //Deletes lesson from database, initiates location move and modal
   $scope.deleteLesson = function(lesson) {
     $http.delete('/lesson/' + lesson.id).then(function(response){
@@ -68,8 +65,6 @@ myApp.controller('LessonController', ['$scope', '$http', '$location', 'UserServi
       $location.path('/user');
       $scope.sweetAlertModal('Success!', 'Sweet, your lesson has been emailed!');
     });
-    // sends email to student
-    // $scope.sendEmail(lesson);
   };//ends assignLesson
 
 

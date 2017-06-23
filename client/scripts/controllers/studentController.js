@@ -19,7 +19,7 @@ myApp.controller('StudentController', ['$scope', '$http', '$location', 'UserServ
     instrument: '',
     day: '',
   };
-//
+
   sweetAlert = function() {
     swal({
     title: 'Success!',

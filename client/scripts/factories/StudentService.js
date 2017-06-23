@@ -28,11 +28,10 @@ function getStudents() {
 }); //end httpget
 }// end getStudents
 
-//move to 'mystudent' view
+//move to 'mystudent' view for specific student
 function studentView(student) {
   //sets studentObject.data equal to the student that was clicked.
   studentObject.data = student;
-  //changes view to go to specific student's details
   $location.path('/mystudent');
 }
 
