@@ -39,8 +39,6 @@ router.post('/', function(req, res) {
       res.send(500);
 
     } else {
-        console.log('made it to else in router.post');
-// UPDATE DB QUERY BELOW!
       db.query('INSERT INTO "students" ("name", "email", "instrument", "day", "teacher") VALUES ($1, $2, $3, $4, $5);', [req.body.name, req.body.email, req.body.instrument, req.body.day, req.body.teacher], function(queryError, result){
         done();
         if (queryError) {

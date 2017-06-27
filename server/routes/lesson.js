@@ -38,7 +38,6 @@ router.post('/', function(req, res) {
       res.send(500);
 
     } else {
-        console.log('made it to else in router.post');
       db.query('INSERT INTO "lessons" ("student", "date", "description", "email", "assigned") VALUES ($1, $2, $3, $4, FALSE);', [req.body.student.id, req.body.date, req.body.description, req.body.student.email], function(queryError, result){
         done();
         if (queryError) {
@@ -56,17 +55,13 @@ router.post('/', function(req, res) {
 
 //Update lesson property of 'assigned' to TRUE once email has been sent to student.
 router.put('/assign/:id', function(req, res){
-  console.log('logging req.body in router.put: ', req.body);
-  console.log('req params in put: ', req.params);
   var lessonId= req.params.id;
-  console.log('logging lessonId in put: ', lessonId);
 
   pool.connect(function(errorConnectingToDatabase, db, done){
     if(errorConnectingToDatabase) {
       console.log('Error connecting to the database.');
       res.send(500);
     } else {
-      //NEED TO UPDATE QUERY for lesson update
       db.query("UPDATE lessons SET assigned = 'TRUE' WHERE id =" + lessonId, function(queryError, result){
         done();
         if(queryError) {
@@ -83,8 +78,6 @@ router.put('/assign/:id', function(req, res){
 
 // Update lesson details in edit mode.
 router.put('/update/:id', function(req, res){
-  console.log('logging req.body in router.put: ', req.body);
-  console.log('req params in put: ', req.params);
   var lessonId= req.params.id;
 
   pool.connect(function(errorConnectingToDatabase, db, done){
@@ -92,8 +85,8 @@ router.put('/update/:id', function(req, res){
       console.log('Error connecting to the database.');
       res.send(500);
     } else {
-      // db.query("UPDATE lessons SET assigned = 'FALSE', description =" + req.body.description + ", date =" + req.body.date + " WHERE id =" + lessonId, function(queryError, result){
-      db.query("UPDATE lessons SET assigned = 'FALSE', description =$1, date =$2 WHERE id =" + lessonId, [req.body.description, req.body.date], function(queryError, result){
+      db.query("UPDATE lessons SET assigned = 'FALSE', description =$1, date =$2 WHERE id =" +
+              lessonId, [req.body.description, req.body.date], function(queryError, result){
 
         done();
         if(queryError) {
@@ -110,8 +103,6 @@ router.put('/update/:id', function(req, res){
 
 //Deletes lesson from the database by targeting ID
 router.delete('/:id', function(req, res){
-  console.log('logging req.body in router.delete: ', req.body);
-  console.log('req params: ', req.params);
   var lessonId = req.params.id;
 
   pool.connect(function(errorConnectingToDatabase, db, done){
